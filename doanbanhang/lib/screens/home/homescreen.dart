@@ -11,6 +11,7 @@ import 'package:doanbanhang/screens/cart/cart_screen.dart';
 import 'package:doanbanhang/screens/fav_screen/fav_screen.dart';
 import 'package:doanbanhang/screens/home/categories.dart';
 import 'package:doanbanhang/screens/home/itemcard.dart';
+import 'package:doanbanhang/screens/home/new_product_screen.dart';
 import 'package:doanbanhang/screens/home/sell_of_screen.dart';
 import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:doanbanhang/screens/productdetails/detail.dart';
@@ -75,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen>{
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
           CarouselSlider(
             options: CarouselOptions(),
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen>{
          
           ],
           ),
-          SizedBox(height: 15,),
+          SizedBox(height: 30,),
           const Categories(),
           
           SizedBox(height: 30,),
@@ -104,6 +105,19 @@ class _HomeScreenState extends State<HomeScreen>{
           ),
           SizedBox(height: 30,),
           SellOf(),
+           SizedBox(height: 30,),
+            Row(
+            children:[ 
+              SizedBox(width: 5,),
+              Text(
+            "New Product",
+            style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+            textAlign: TextAlign.left,
+          ),
+            ],
+          ),
+           SizedBox(height: 30,),
+          NewProduct(),
         ],
       ),
       
