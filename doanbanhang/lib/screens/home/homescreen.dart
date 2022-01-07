@@ -79,7 +79,9 @@ class _HomeScreenState extends State<HomeScreen>{
       body: ListView(
         children: [
           CarouselSlider(
-            options: CarouselOptions(),
+            options: CarouselOptions(
+              autoPlay: true,
+            ),
             items: [
             
           Image.asset('assets/images/banner.jpg',fit: BoxFit.cover,width: 1300,),

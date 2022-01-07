@@ -11,6 +11,7 @@ class Register extends StatelessWidget{
      title: " Chao cac ban",
      home: Scaffold(
        appBar: AppBar(
+         backgroundColor: Colors.orange,
          leading: IconButton(
             icon: const Icon(FontAwesomeIcons.arrowLeft,
             size: 20,),
@@ -79,6 +80,16 @@ class Register extends StatelessWidget{
             child: ElevatedButton(
               onPressed: (){},
               child: const Text('Đăng kí'),
+               style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
             ),
            ),
            ],

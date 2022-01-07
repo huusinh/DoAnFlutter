@@ -10,7 +10,9 @@ Widget build(BuildContext context) {
      title: " Chao cac ban",
      home: Scaffold(
        appBar: AppBar(
-          title: const Text('Mật khẩu mới')),
+          title: const Text('Mật khẩu mới'),
+          centerTitle: true,
+          backgroundColor: Colors.orange,),
        body: Center(
          child: ListView( children: [
            Padding(
@@ -43,6 +45,16 @@ Widget build(BuildContext context) {
             child: ElevatedButton(
               onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));},
               child: const Text('Trang chủ'),
+              style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
             ),
            ),
            ],
