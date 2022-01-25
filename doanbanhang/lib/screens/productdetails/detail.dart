@@ -1,25 +1,25 @@
 import 'package:doanbanhang/constants.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/productdetails/body.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DetailScreen extends StatelessWidget{
-  final Product product;
+ 
   const DetailScreen({Key? key, required this.product}) : super(key: key);
-
+final Product product;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: product.color,
+      backgroundColor:Colors.black,
       appBar: buildAppBar(context),
-      body: Body(product: product),
+      body: Body(image:product.image,product: product),
     );
   }
 
   AppBar buildAppBar (BuildContext context){
     return AppBar(
-        backgroundColor: product.color,
+        backgroundColor: Colors.black,//product.color,
         elevation: 0,
         leading: IconButton(
             icon: const Icon(FontAwesomeIcons.arrowLeft,

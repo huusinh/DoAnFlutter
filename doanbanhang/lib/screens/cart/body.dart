@@ -1,5 +1,8 @@
+import 'package:doanbanhang/api/api_apple.dart';
+import 'package:doanbanhang/api/api_getcart.dart';
 import 'package:doanbanhang/constants.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/cart.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/home/itemcard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,12 +16,20 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
-      child: ListView.builder(
-        itemCount: products.length,
+       child: FutureBuilder<List<Cart>>(
+        future: fetchGetCart("tentkmuahang"),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('An error has occurred!'),
+            );
+          } else if (snapshot.hasData) {
+            return ListView.builder(
+        itemCount: snapshot.data!.length,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
           child: Dismissible(
-            key: Key(products[0].id.toString()),
+            key: Key(snapshot.data![index].id.toString()),
             background: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -32,11 +43,23 @@ class Body extends StatelessWidget {
               ),
             ),
             child: CartItemCard(
-              product: products[index],
+              image: snapshot.data![index].image.toString(),
+              tittle: snapshot.data![index].tittle.toString(),
+              price: snapshot.data![index].price.toInt(),
+              id: snapshot.data![index].idsanpham.toInt(),
             ),
           ),
         ),
+      );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
       ),
+       
     );
   }
 }
+ 

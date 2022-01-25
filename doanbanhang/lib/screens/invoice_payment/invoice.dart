@@ -1,4 +1,4 @@
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -12,7 +12,7 @@ class Invoice extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(product: products[0],),
+      body: Body(),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15,

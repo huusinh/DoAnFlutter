@@ -1,5 +1,5 @@
 import 'package:doanbanhang/constants.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/productdetails/cart_counter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 
 class Body extends StatelessWidget {
-  const Body({Key? key, required this.product}) : super(key: key);
-  final Product product;
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -116,7 +116,7 @@ class Body extends StatelessWidget {
                     ),
                   ],
                     ),
-                    child: Image.asset(product.image),
+                    child: Image.asset("ầdg"),
                   ),
                 ),
               ),
@@ -127,7 +127,7 @@ class Body extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    product.tittle,
+                    "ága",
                     style: TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   const SizedBox(
@@ -135,14 +135,14 @@ class Body extends StatelessWidget {
                   ),
                   Text.rich(
                     TextSpan(
-                      text: "\$${product.price}",
+                      text: "\$${12}",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: Colors.red,
                       ),
                       children: [
                   TextSpan(
-                      text: " x${product.id}",
+                      text: " x${14}",
                       style: TextStyle(color: kTextColor)),
                 ],
                     ),

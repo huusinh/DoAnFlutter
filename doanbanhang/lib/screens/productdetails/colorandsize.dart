@@ -1,14 +1,14 @@
 import 'package:doanbanhang/constants.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/productdetails/body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ColorAndSize extends StatelessWidget{
   const ColorAndSize({Key? key,
-  required this.product,
+  //required this.product,
   }) : super(key: key);
-final Product product;
+//final Product product;
  @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,7 +38,7 @@ final Product product;
                                 children: [
                                   TextSpan(text: "Size\n"),
                                   TextSpan(
-                                    text: "${product.size} cm",
+                                    text: "${4356} cm",
                                     style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                 ],

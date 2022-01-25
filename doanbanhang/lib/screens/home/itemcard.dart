@@ -1,5 +1,5 @@
 import 'package:doanbanhang/constants.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget{
@@ -7,7 +7,7 @@ class ItemCard extends StatelessWidget{
   final Function() press;
   const ItemCard({
     Key ?key,
-    required this.product, 
+    required this.product,
     required this.press,
   }):super(key: key);
   @override
@@ -17,18 +17,19 @@ class ItemCard extends StatelessWidget{
      child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:<Widget>[
+   
               Expanded(
             child:Container(
             padding: const EdgeInsets.all(kDefaultPaddin),
             //width: 140,
             //height: 160,
             decoration: BoxDecoration(
-              color: product.color,
+              color: Colors.orange[100],
               borderRadius: BorderRadius.circular(16)
             ),
             child: Hero(
               tag: "${product.id}",
-              child: Image.asset(product.image),
+              child: Image.network("http://10.0.2.2/images/"+product.image,)
           ),
               ),
               ),

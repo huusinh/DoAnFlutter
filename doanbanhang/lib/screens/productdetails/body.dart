@@ -1,6 +1,6 @@
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/icons/my_flutter_app_icons.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/productdetails/add_to_cart.dart';
 import 'package:doanbanhang/screens/productdetails/colorandsize.dart';
 import 'package:doanbanhang/screens/productdetails/description.dart';
@@ -13,9 +13,11 @@ import 'cart_counter.dart';
 import 'counter_with_fav_button.dart';
 
 class Body extends StatelessWidget{
-  final Product product;
-
-  const Body({Key? key, required this.product}) : super(key: key);
+  final String? image;
+ final Product product;
+  const Body({Key? key, required this.image,
+  required this.product
+  }) : super(key: key);
    @override
   Widget build(BuildContext context) {
     Size size=MediaQuery.of(context).size;
@@ -43,7 +45,7 @@ class Body extends StatelessWidget{
                   ),
                   child: Column(
                     children:<Widget> [
-                      ColorAndSize(product: product),
+                      ColorAndSize(),//product: product),
                       SizedBox(height: kDefaultPaddin/2,),
                       Description(product: product),
                       SizedBox(height: kDefaultPaddin/2,),
@@ -53,7 +55,7 @@ class Body extends StatelessWidget{
                     ],
                   ),
                 ),
-                ProductTitleWithImage(product: product),
+                ProductTitleWithImage(image: image!,product: product),
                
               ],
             ),

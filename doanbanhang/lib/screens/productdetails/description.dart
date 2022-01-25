@@ -1,5 +1,5 @@
 import 'package:doanbanhang/constants.dart';
-import 'package:doanbanhang/models/products.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:flutter/cupertino.dart';
 
 class Description extends StatelessWidget{

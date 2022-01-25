@@ -1,13 +1,19 @@
-import 'package:doanbanhang/models/products.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/invoice_payment/counter.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
 class CartItemCard extends StatelessWidget {
-  const CartItemCard({Key? key, required this.product}) : super(key: key);
+  const CartItemCard({Key? key, required this.image,
+  required this.tittle,
+  required this.price,
+  required this.id,
+  }) : super(key: key);
 
-final Product product;
+final String image, tittle;
+final int price, id;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +28,11 @@ final Product product;
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.asset(product.image),
+              child: CachedNetworkImage(imageUrl:"http://10.0.2.2/images/"+image,
+              placeholder: (context, url) => const Center(
+              child: CircularProgressIndicator(),
+            ),
+              ),
             ),
           ),
         ),
@@ -33,7 +43,7 @@ final Product product;
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              product.tittle,
+              tittle,
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
             const SizedBox(
@@ -41,14 +51,14 @@ final Product product;
             ),
             Text.rich(
               TextSpan(
-                text: "\$${product.price}",
+                text: "\$${price}",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: Colors.red,
                 ),
                 children: [
                   TextSpan(
-                      text: " x${product.id}",
+                      text: " x${id}",
                       style: TextStyle(color: kTextColor)),
                 ],
               ),

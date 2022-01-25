@@ -1,8 +1,10 @@
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:doanbanhang/api/api_apple.dart';
+import 'package:doanbanhang/api/api_samsung.dart';
 import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/home/itemcard.dart';
+import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:doanbanhang/screens/productdetails/detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +12,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants.dart';
 
-class Apple extends StatelessWidget {
-  const Apple({Key? key}) : super(key: key);
+class Samsung extends StatelessWidget {
+  const Samsung({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,27 +33,26 @@ class Apple extends StatelessWidget {
           },
         ),
       ),
-      body: appleWidget(),
+      body: SamsungWidget(),
     );
   }
 }
 
-class appleWidget extends StatelessWidget {
-  const appleWidget({
+class SamsungWidget extends StatelessWidget {
+  const SamsungWidget({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
             child: Text(
-              "Apple",
+              "Samsung",
               style: Theme.of(context)
                   .textTheme
                   .headline5!
@@ -65,7 +66,7 @@ class appleWidget extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
               child: FutureBuilder<List<Product>>(
-                future: fetchApple(),
+                future: fetchSamsung(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
                     return const Center(

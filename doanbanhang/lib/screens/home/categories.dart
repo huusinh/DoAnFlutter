@@ -1,5 +1,9 @@
+
+
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/screens/products/apple.dart';
+import 'package:doanbanhang/screens/products/samsung.dart';
+import 'package:doanbanhang/screens/products/xiaomi.dart';
 //import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +46,9 @@ class _CategoriesState extends State<Categories> {
           minWidth: 10,
           height: 50,
           child: RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung()));
+            },
             color: kTextColor,
             padding: const EdgeInsets.symmetric(horizontal: 40),
             shape: RoundedRectangleBorder(
@@ -60,7 +66,9 @@ class _CategoriesState extends State<Categories> {
           minWidth: 10,
           height: 50,
           child: RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Xiaomi()));
+            },
             color: kTextColor,
             padding: const EdgeInsets.symmetric(horizontal: 40),
             shape: RoundedRectangleBorder(
