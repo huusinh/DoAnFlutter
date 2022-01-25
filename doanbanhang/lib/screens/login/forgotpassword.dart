@@ -12,6 +12,8 @@ Widget build(BuildContext context) {
      title: " Chao cac ban",
      home: Scaffold(
        appBar: AppBar(
+         centerTitle: true,
+         backgroundColor: Colors.orange,
           title: const Text('Quên mật khẩu'),
           leading: IconButton(
             icon: const Icon(FontAwesomeIcons.arrowLeft,
@@ -51,6 +53,16 @@ Widget build(BuildContext context) {
             child: ElevatedButton(
               onPressed: (){},
               child: const Text('Lấy mã'),
+               style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
               
             ),
            ),
@@ -75,7 +87,16 @@ Widget build(BuildContext context) {
             child: ElevatedButton(
               onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>NewPassword()));},
               child: const Text('Xác nhận'),
-              
+               style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
             ),
            ),
            ],

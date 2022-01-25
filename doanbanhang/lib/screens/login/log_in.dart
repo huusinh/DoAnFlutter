@@ -23,31 +23,47 @@ class Login1 extends State<Login>{
      debugShowCheckedModeBanner: false,
      title: " Chao cac ban",
      home: Scaffold(
-       backgroundColor: Colors.pinkAccent[80],
        appBar: AppBar(
-          //title: const Text('Đăng Nhập')
-          foregroundColor: kTextLightColor,
+          title: const Text('Đăng Nhập'),
+          centerTitle: true,
+           backgroundColor: Colors.orange,
           ),
-       body:  Center (
+       body:  Container( 
+         decoration: const BoxDecoration(
+           image: DecorationImage(
+             image: AssetImage('assets/images/hublot1.png'),
+             fit: BoxFit.cover),
+         ),
+         child: Center (
          child: ListView( children: [
            Padding(
-             padding: const EdgeInsets.all(15), 
-             child: Image.asset('assets/images/bannerLogin.png', width: 150, height: 200,
-             ),
+             padding: const EdgeInsets.all(10), 
+             child: Image.asset('assets/images/bannerLogin.png', width: 100, height: 200,),
            ),
-         const Padding(
-          padding: const EdgeInsets.all(15),
+       
+        Padding(padding: const EdgeInsets.all(10),
+        child: Container(
+          decoration: BoxDecoration(
+          color: Colors.white12.withOpacity(1),
+         borderRadius: BorderRadius.circular(20),
+        ),
           child: TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Tài khoản' ,
+              hintText: 'Tài khoản' , 
               labelText:'Tài khoản' ,
               prefixIcon: Icon(Icons.account_circle),
             ),
           ),
+          ), 
+        
+        ),
+          
+         Padding(padding: EdgeInsets.all(10),
+         child:  Container(decoration: BoxDecoration(
+            color: Colors.white10.withOpacity(1),
+            borderRadius: BorderRadius.circular(20),
           ),
-           Padding(
-          padding: const EdgeInsets.all(15),
           child: TextField(
             obscureText: isHiddenPassword,
             decoration: InputDecoration(
@@ -59,17 +75,17 @@ class Login1 extends State<Login>{
                 onTap: _TongglePasswordView,
                 child: Icon(Icons.visibility,
               ),
-            
               ),
             ),
           ),
           ),
+         ),
               TextButton(
               child: Text('Quên mật khẩu',
               textAlign: TextAlign.end,
               style: TextStyle(
               color: Colors.red,
-              fontSize: 15,
+              fontSize: 20,
               fontStyle: FontStyle.italic,
               decoration: TextDecoration.underline,
               ) ,
@@ -85,15 +101,26 @@ class Login1 extends State<Login>{
             child: ElevatedButton(
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-              },
+                },
               child: const Text('Đăng Nhập'),
+               style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
+              
             ),
            ), 
            Text('Bạn chưa có tài khoản ?',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 
               ),
@@ -122,6 +149,16 @@ class Login1 extends State<Login>{
              onPressed: (){},
             icon: Icon(Icons.facebook),
              label: Text("Dang nhap bằng Facebook"),
+              style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
 
            ),
          ),
@@ -134,12 +171,23 @@ class Login1 extends State<Login>{
              onPressed: (){},
             icon: Icon(Icons.mail),
              label: Text("Dang nhap bằng Gmail"),
+              style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.orange),
+                      ),
+                    ),
+                  ),
            ),
          ),
          ),      
            ],
            ),
          ),
+       ),
        ), 
      );
  }
