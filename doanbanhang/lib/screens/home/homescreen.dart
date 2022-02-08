@@ -1,8 +1,8 @@
 
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:doanbanhang/constants.dart';
+import 'package:doanbanhang/models/account.dart';
 //import 'package:doanbanhang/icons/my_flutter_app_icons.dart';
 import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/account/address.dart';
@@ -24,7 +24,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class HomeScreen extends StatefulWidget{
-  const HomeScreen({Key? key}) : super(key: key);
+  final List <User> account;
+  const HomeScreen({Key? key, required this.account }) : super(key: key);
    @override 
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -32,7 +33,7 @@ class HomeScreen extends StatefulWidget{
 class _HomeScreenState extends State<HomeScreen>{
   int index=0;
   final screens=[
-    HomeScreen(),
+    HomeScreen(account: [],),
     FavScreen(),
     Profile(),
   ];
