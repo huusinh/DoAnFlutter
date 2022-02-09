@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
             icon: const Icon(FontAwesomeIcons.arrowLeft,
             size: 20,),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(account: [],)));
             },
         ),
         title: const Text('Tài khoản'),

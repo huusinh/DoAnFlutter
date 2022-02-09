@@ -28,7 +28,7 @@ class Other extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                context, MaterialPageRoute(builder: (context) => HomeScreen(account: [],)));
           },
         ),
       ),

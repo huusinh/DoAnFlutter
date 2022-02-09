@@ -1,5 +1,6 @@
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
+import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
       ),
-      home: const HomeScreen(),
+      home: const Login(),
     );
   }
 }
