@@ -65,7 +65,7 @@ class _SellOf extends State<SellOf> {
                         ),
                         Text(
                           snapshot.data![i].tittle.toString(),
-                          style: TextStyle(color: kTextLightColor),
+                          style: TextStyle(color: Colors.black),
                         ),
                         SizedBox(
                           height: 5,

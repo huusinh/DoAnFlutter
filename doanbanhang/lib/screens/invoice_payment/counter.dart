@@ -1,8 +1,12 @@
+import 'package:doanbanhang/api/api_updatesoluong.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:flutter/material.dart';
 
 class CartCounter extends StatefulWidget{
-  const CartCounter({Key? key}) : super(key: key);
+  const CartCounter({Key? key,
+  required this.idchitietgiohang,
+  required this.soluong}) : super(key: key);
+final int idchitietgiohang,soluong;
 
   @override 
   _CartCounterState createState() => _CartCounterState();
@@ -10,13 +14,20 @@ class CartCounter extends StatefulWidget{
 class _CartCounterState extends State<CartCounter>
 {
   int numOfItems=1;
+
+  @override
+  void initState() {
+    super.initState();
+    numOfItems=widget.soluong;
+  }
    @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         buildOutlineButton(
           icon: Icons.remove,
-          press: () {
+          press: () { 
+            fetchUpdate(widget.idchitietgiohang,0);
             if (numOfItems>1){
               setState(() {
                 numOfItems--;
@@ -32,6 +43,7 @@ class _CartCounterState extends State<CartCounter>
           ),
         ),
         buildOutlineButton(icon: Icons.add, press: () {
+           fetchUpdate(widget.idchitietgiohang,1);
           setState(() {
             numOfItems++;
           });

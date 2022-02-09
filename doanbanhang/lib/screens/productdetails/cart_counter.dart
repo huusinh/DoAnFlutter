@@ -16,7 +16,7 @@ class _CartCounterState extends State<CartCounter>
       children: <Widget>[
         buildOutlineButton(
           icon: Icons.remove,
-          press: () {
+          press: ()  { 
             if (numOfItems>1){
               setState(() {
                 numOfItems--;

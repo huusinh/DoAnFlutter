@@ -1,19 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doanbanhang/api/api_deleteproduct.dart';
 import 'package:doanbanhang/models/products_test.dart';
+import 'package:doanbanhang/screens/cart/cart_screen.dart';
 import 'package:doanbanhang/screens/invoice_payment/counter.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
 class CartItemCard extends StatelessWidget {
-  const CartItemCard({Key? key, required this.image,
-  required this.tittle,
-  required this.price,
-  required this.id,
+  const CartItemCard({
+    Key? key,
+    required this.image,
+    required this.tittle,
+    required this.price,
+    required this.id,
+    required this.idsp,
+    required this.soluong
   }) : super(key: key);
 
-final String image, tittle;
-final int price, id;
+  final String image, tittle;
+  final int price, id, idsp, soluong;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,22 +34,59 @@ final int price, id;
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: CachedNetworkImage(imageUrl:"http://10.0.2.2/images/"+image,
-              placeholder: (context, url) => const Center(
-              child: CircularProgressIndicator(),
-            ),
+              child: CachedNetworkImage(
+                imageUrl: "http://10.0.2.2/images/" + image,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
               ),
             ),
           ),
         ),
         SizedBox(
-          width: kDefaultPaddin/2,
+          width: kDefaultPaddin / 2,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                SizedBox(width: 180),
+                IconButton(
+                    onPressed: () async {
+                      var flag = await fetchDelete(id);
+                      if (flag == 1) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CartScreen()));
+                      } else {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('Notification'),
+                                content: Text('Delete product failed'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('OK'),
+                                  )
+                                ],
+                              );
+                            });
+                      }
+                    },
+                    icon: Icon(Icons.delete)),
+              ],
+            ),
             Text(
               tittle,
+              softWrap: false,
+                overflow: TextOverflow.ellipsis,
+              
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
             const SizedBox(
@@ -56,14 +99,10 @@ final int price, id;
                   fontWeight: FontWeight.w600,
                   color: Colors.red,
                 ),
-                children: [
-                  TextSpan(
-                      text: " x${id}",
-                      style: TextStyle(color: kTextColor)),
-                ],
+                
               ),
             ),
-            CartCounter(),
+            CartCounter(idchitietgiohang: id,soluong: soluong,),
           ],
         ),
       ],
