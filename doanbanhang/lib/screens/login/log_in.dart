@@ -1,6 +1,7 @@
 import 'package:doanbanhang/api/api_account.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
+import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'register.dart';
 import 'forgotpassword.dart';
@@ -55,7 +56,7 @@ class Logincreen extends State<Login> {
                           ),
                           child: TextField(
                             controller: email,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Tài khoản',
                               labelText: 'Tài khoản',
@@ -65,7 +66,7 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white10.withOpacity(1),
@@ -75,13 +76,13 @@ class Logincreen extends State<Login> {
                             controller: password,
                             obscureText: isHiddenPassword,
                             decoration: InputDecoration(
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               hintText: 'Mật khẩu',
                               labelText: 'Mật khẩu',
-                              prefixIcon: Icon(Icons.security),
+                              prefixIcon: const Icon(Icons.security),
                               suffixIcon: InkWell(
-                                onTap: _TongglePasswordView,
-                                child: Icon(
+                                onTap: () => setState(() => isHiddenPassword = !isHiddenPassword),
+                                child: const Icon(
                                   Icons.visibility,
                                 ),
                               ),
@@ -90,7 +91,7 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           'Quên mật khẩu',
                           textAlign: TextAlign.end,
                           style: TextStyle(
@@ -103,7 +104,7 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ForgotPass()),
+                            MaterialPageRoute(builder: (context) => const ForgotPass()),
                           );
                         },
                       ),
@@ -111,9 +112,11 @@ class Logincreen extends State<Login> {
                         padding: const EdgeInsets.all(15),
                         child: ElevatedButton(
                           onPressed: () async {
-                            final List<User> aa = [];
                             final kq = await apiLogin(email.text, password.text);
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(account: aa)));
+                            if (kq.email.isNotEmpty) {
+                              Auth.user = kq;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                            }
                           },
                           child: const Text('Đăng Nhập'),
                           style: ButtonStyle(
@@ -121,13 +124,13 @@ class Logincreen extends State<Login> {
                             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18),
-                                side: BorderSide(color: Colors.orange),
+                                side: const BorderSide(color: Colors.orange),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Bạn chưa có tài khoản ?',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -137,7 +140,7 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           'Đăng kí',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -150,24 +153,24 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Register()),
+                            MaterialPageRoute(builder: (context) => const Register()),
                           );
                         },
                       ),
                       Padding(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: SizedBox(
                           height: 30,
                           child: ElevatedButton.icon(
                             onPressed: () {},
-                            icon: Icon(Icons.facebook),
-                            label: Text("Dang nhap bằng Facebook"),
+                            icon: const Icon(Icons.facebook),
+                            label: const Text("Dang nhap bằng Facebook"),
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
-                                  side: BorderSide(color: Colors.orange),
+                                  side: const BorderSide(color: Colors.orange),
                                 ),
                               ),
                             ),
@@ -175,19 +178,19 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: SizedBox(
                           height: 30,
                           child: ElevatedButton.icon(
                             onPressed: () {},
-                            icon: Icon(Icons.mail),
-                            label: Text("Dang nhap bằng Gmail"),
+                            icon: const Icon(Icons.mail),
+                            label: const Text("Dang nhap bằng Gmail"),
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
-                                  side: BorderSide(color: Colors.orange),
+                                  side: const BorderSide(color: Colors.orange),
                                 ),
                               ),
                             ),
@@ -203,11 +206,5 @@ class Logincreen extends State<Login> {
         ),
       ),
     );
-  }
-
-  void _TongglePasswordView() {
-    setState(() {
-      isHiddenPassword = !isHiddenPassword;
-    });
   }
 }

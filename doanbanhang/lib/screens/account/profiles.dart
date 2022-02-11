@@ -1,5 +1,3 @@
-
-
 import 'package:doanbanhang/screens/fav_screen/fav_screen.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/orders/my_order.dart';
@@ -18,11 +16,13 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: const Icon(FontAwesomeIcons.arrowLeft,
-            size: 20,),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(account: [],)));
-            },
+          icon: const Icon(
+            FontAwesomeIcons.arrowLeft,
+            size: 20,
+          ),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+          },
         ),
         title: const Text('Tài khoản'),
       ),
@@ -37,15 +37,9 @@ class Profile extends StatelessWidget {
                   width: 115,
                   height: 115,
                   decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 4.0,
-                        color: Theme.of(context).scaffoldBackgroundColor),
+                    border: Border.all(width: 4.0, color: Theme.of(context).scaffoldBackgroundColor),
                     boxShadow: [
-                      BoxShadow(
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          color: Colors.black.withOpacity(0.1),
-                          offset: const Offset(0, 10)),
+                      BoxShadow(spreadRadius: 2, blurRadius: 10, color: Colors.black.withOpacity(0.1), offset: const Offset(0, 10)),
                     ],
                     shape: BoxShape.circle,
                     image: const DecorationImage(
@@ -80,8 +74,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -113,8 +106,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -134,10 +126,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const RowAddress()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const RowAddress()));
               },
             ),
           ),
@@ -146,8 +135,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -167,7 +155,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>FavScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FavScreen()));
               },
             ),
           ),
@@ -176,8 +164,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -197,7 +184,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>MyOrder()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder()));
               },
             ),
           ),
@@ -206,12 +193,10 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ContactUs()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUs()));
               },
               child: Row(
                 children: const [

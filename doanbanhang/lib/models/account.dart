@@ -9,16 +9,7 @@ class User {
   int? quyen;
   int? trangThai;
 
-  User(
-      {this.id,
-      required this.name,
-      required this.email,
-      this.gioiTinh,
-      this.ngaySinh,
-      this.diaChi,
-      this.sDT,
-      this.quyen,
-      this.trangThai});
+  User({this.id, required this.name, required this.email, this.gioiTinh, this.ngaySinh, this.diaChi, this.sDT, this.quyen, this.trangThai});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -44,5 +35,17 @@ class User {
     data['Quyen'] = quyen;
     data['TrangThai'] = trangThai;
     return data;
+  }
+
+  User.empty() {
+    id = -1;
+    name = "";
+    email = "";
+    gioiTinh = "";
+    ngaySinh = "";
+    diaChi = "";
+    sDT = "";
+    quyen = -1;
+    trangThai = -1;
   }
 }

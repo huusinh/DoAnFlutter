@@ -24,8 +24,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class HomeScreen extends StatefulWidget{
-  final List <User> account;
-  const HomeScreen({Key? key, required this.account }) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
    @override 
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -33,7 +32,7 @@ class HomeScreen extends StatefulWidget{
 class _HomeScreenState extends State<HomeScreen>{
   int index=0;
   final screens=[
-    HomeScreen(account: [],),
+    HomeScreen(),
     FavScreen(),
     Profile(),
   ];
