@@ -1,40 +1,48 @@
 class User {
-  final int id;
-  final String email;
-  final String password;
-  final String GioiTinh;
-  final String NgaySinh;
-  final String DiaChi;
-  final String SDT;
-  User({
-    required this.id,
-    required this.email,
-      required this.password,
-     required this.GioiTinh,
-      required this.NgaySinh,
-      required this.DiaChi,
-      required this.SDT,
-  
-  });
+  int? id;
+  late String name;
+  late String email;
+  String? gioiTinh;
+  String? ngaySinh;
+  String? diaChi;
+  String? sDT;
+  int? quyen;
+  int? trangThai;
 
-  User.fromJson(Map<String, dynamic> json) 
-    :id = json['id'],
-    email = json['email'],
-    password = json['password'],
-    GioiTinh = json['GioiTinh'],
-    NgaySinh = json['NgaySinh'],
-    DiaChi = json['DiaChi'],
-    SDT = json['SDT'];
-  
-  
+  User(
+      {this.id,
+      required this.name,
+      required this.email,
+      this.gioiTinh,
+      this.ngaySinh,
+      this.diaChi,
+      this.sDT,
+      this.quyen,
+      this.trangThai});
 
-  Map<String, dynamic> toJson()=> {
-    'id' : id,
-    'email' : email,
-    'password' : password,
-    'GioiTinh' : GioiTinh,
-    'NgaySinh' : NgaySinh,
-    'DiaChi' : DiaChi,
-    'SDT' : SDT,
-  };
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    gioiTinh = json['GioiTinh'];
+    ngaySinh = json['NgaySinh'];
+    diaChi = json['DiaChi'];
+    sDT = json['SDT'];
+    quyen = json['Quyen'];
+    trangThai = json['TrangThai'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['GioiTinh'] = gioiTinh;
+    data['NgaySinh'] = ngaySinh;
+    data['DiaChi'] = diaChi;
+    data['SDT'] = sDT;
+    data['Quyen'] = quyen;
+    data['TrangThai'] = trangThai;
+    return data;
+  }
 }

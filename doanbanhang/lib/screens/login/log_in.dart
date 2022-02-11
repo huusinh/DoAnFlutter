@@ -15,26 +15,8 @@ class Login extends StatefulWidget {
 
 class Logincreen extends State<Login> {
   bool isHiddenPassword = true;
-  TextEditingController email=new TextEditingController();
-  TextEditingController password=new TextEditingController();
-  Future Login() async
-  {
-    Map<String ,String > data ={
-      'email' : email.text,
-      'password'  : password.text,
-      
-    };
-    List<User> res = await login(data);
-    if( res.length ==1)
-    {
-      print("chao cac ban");
-      //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen(account: res)));
-    }
-    else
-    {
-      print("Khong thanh cong");
-    }
-  }
+  TextEditingController email = TextEditingController(text: "linhquan@gmail.com");
+  TextEditingController password = TextEditingController(text: "123456");
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,9 +30,7 @@ class Logincreen extends State<Login> {
         ),
         body: Container(
           decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/hublot1.png'),
-                fit: BoxFit.cover),
+            image: DecorationImage(image: AssetImage('assets/images/hublot1.png'), fit: BoxFit.cover),
           ),
           child: Center(
             child: ListView(
@@ -123,23 +103,22 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => ForgotPass()),
+                            MaterialPageRoute(builder: (context) => ForgotPass()),
                           );
                         },
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15),
                         child: ElevatedButton(
-                          onPressed: () {
-                           Login();
+                          onPressed: () async {
+                            final List<User> aa = [];
+                            final kq = await apiLogin(email.text, password.text);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(account: aa)));
                           },
                           child: const Text('Đăng Nhập'),
                           style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.orange),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18),
                                 side: BorderSide(color: Colors.orange),
@@ -184,10 +163,8 @@ class Logincreen extends State<Login> {
                             icon: Icon(Icons.facebook),
                             label: Text("Dang nhap bằng Facebook"),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
                                   side: BorderSide(color: Colors.orange),
@@ -206,10 +183,8 @@ class Logincreen extends State<Login> {
                             icon: Icon(Icons.mail),
                             label: Text("Dang nhap bằng Gmail"),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
                                   side: BorderSide(color: Colors.orange),
