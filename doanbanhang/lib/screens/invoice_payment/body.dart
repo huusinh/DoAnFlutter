@@ -1,50 +1,44 @@
+import 'package:doanbanhang/api/api_account.dart';
+import 'package:doanbanhang/api/api_getcart.dart';
 import 'package:doanbanhang/constants.dart';
+import 'package:doanbanhang/models/account.dart';
 import 'package:doanbanhang/models/products_test.dart';
+import 'package:doanbanhang/screens/cart/cart_item_cart.dart';
+import 'package:doanbanhang/screens/invoice_payment/invoice_itemcard.dart';
 import 'package:doanbanhang/screens/productdetails/cart_counter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:doanbanhang/models/cart.dart';
 
 
+class Body extends StatefulWidget {
+ final  int id;
 
-class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  const Body({Key? key, required this.id }) : super(key: key);
+    @override 
+_BodyState createState() => _BodyState();
+}
+class _BodyState extends State<Body>{
 
+  var info="";
+
+  void getInfo(int id) async {
+    User user= await infoAccount(id);
+    setState(() {
+      info='Số điện thoại: '+user.sodienthoai.toString() + '\n' +'Địa chỉ: '+user.diachi.toString(); 
+ 
+    });
+  }
+void initState(){
+  getInfo(widget.id);
+}
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: ListView(
         children: <Widget>[
-          SizedBox(
-            width: 600,
-            height: 100,
-            child: AspectRatio(
-              aspectRatio: 0.88,
-              child: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Color(0xFFF5F6F9),
-                  //borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: kTextColor,
-                      blurRadius: 4,
-                      offset: Offset(4, 8), // Shadow position
-                    ),
-                  ],
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Text(
-                    "mã đơn hàng: #12345",
-                    style: TextStyle(
-                      fontSize: 25,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
           SizedBox(
             height: kDefaultPaddin,
           ),
@@ -82,7 +76,7 @@ class Body extends StatelessWidget {
                         height: kDefaultPaddin,
                       ),
                       Text(
-                        "Số điện thoại:0345678456 \nĐịa chỉ: số 144/5 Biên Hòa, Đồng nai",
+                        info,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -97,63 +91,53 @@ class Body extends StatelessWidget {
           SizedBox(
             height: kDefaultPaddin,
           ),
-          Row(
-            children: [
-              SizedBox(
-                width: 100,
-                child: AspectRatio(
-                  aspectRatio: 0.88,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF5F6F9),
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                    BoxShadow(
-                      color: kTextColor,
-                      blurRadius: 4,
-                      offset: Offset(4, 8), // Shadow position
-                    ),
-                  ],
-                    ),
-                    child: Image.asset("ầdg"),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: kDefaultPaddin,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          FutureBuilder<List<Cart>>(
+        future: fetchGetCart(widget.id),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('An error has occurred!'),
+            );
+          } else if (snapshot.hasData) {
+            return Column(
+        
+       children: [
+         for(int i=0;i<snapshot.data!.length;i++)
+         Padding(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          child: Dismissible(
+            key: Key(snapshot.data![i].id.toString()),
+            background: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Color(0xFFFFE6E6),
+                  borderRadius: BorderRadius.circular(15)),
+              child: Row(
                 children: [
-                  Text(
-                    "ága",
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text.rich(
-                    TextSpan(
-                      text: "\$${12}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.red,
-                      ),
-                      children: [
-                  TextSpan(
-                      text: " x${14}",
-                      style: TextStyle(color: kTextColor)),
-                ],
-                    ),
-                    
-                  ),
-                  SizedBox(height: 10,),
-                  
+                  Spacer(),
+                  Icon(FontAwesomeIcons.trash),
                 ],
               ),
-            ],
+            ),
+            child: InvoiceItemCard(
+              image: snapshot.data![i].image.toString(),
+              tittle: snapshot.data![i].tittle.toString(),
+              price: snapshot.data![i].price.toInt(),
+              id: snapshot.data![i].id.toInt(),
+              idsp: snapshot.data![i].idsanpham.toInt(),
+              soluong: snapshot.data![i].soluong.toInt(), iduser: widget.id,
+            ),
           ),
+        ),
+       ],
+      );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
         ],
       ),
     );

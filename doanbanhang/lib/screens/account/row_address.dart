@@ -3,8 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class RowAddress extends StatefulWidget {
-  const RowAddress({Key? key}) : super(key: key);
-
+  const RowAddress({Key? key,required this.iduser}) : super(key: key);
+final int iduser;
   @override
   _RowAddressState createState() => _RowAddressState();
 }
@@ -24,7 +24,7 @@ class _RowAddressState extends State<RowAddress> {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile()));
+                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
           },
         ),
       ),

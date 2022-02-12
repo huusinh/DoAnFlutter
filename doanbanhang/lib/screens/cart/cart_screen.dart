@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
-
+  const CartScreen({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: Body(iduser: iduser,),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15,
@@ -86,7 +86,7 @@ class CartScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12)),
                           )),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice(iduser: iduser,)));
                       },
                     ),
                   ),

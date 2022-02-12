@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
   
-  Future<List<Cart>> fetchGetCart(String tkmuahang) async {
-  final response = await http.post(Uri.parse('http://10.0.2.2:8000/api/getcart'),body: {'tkmuahang':'$tkmuahang'});
+  Future<List<Cart>> fetchGetCart(int iduser) async {
+  final response = await http.post(Uri.parse('http://10.0.2.2:8000/api/getcart'),body: {'iduser':'$iduser'});
   
 if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

@@ -13,8 +13,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants.dart';
 
 class Xiaomi extends StatelessWidget {
-  const Xiaomi({Key? key}) : super(key: key);
-
+  const Xiaomi({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +29,20 @@ class Xiaomi extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen(account: [],)));
+                context, MaterialPageRoute(builder: (context) => HomeScreen(account: [], iduser: iduser,)));
           },
         ),
       ),
-      body: XiaomiWidget(),
+      body: XiaomiWidget(iduser: iduser,),
     );
   }
 }
 
 class XiaomiWidget extends StatelessWidget {
   const XiaomiWidget({
-    Key? key,
+    Key? key, required this.iduser
   }) : super(key: key);
-
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +85,7 @@ class XiaomiWidget extends StatelessWidget {
                       itemBuilder: (context, index) => ItemCard(
                           product: snapshot.data![index],
                           press:
-                              () => Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(product:snapshot.data![index]))),
+                              () => Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(product:snapshot.data![index], iduser: iduser,))),
                           ),
                     );
                   } else {

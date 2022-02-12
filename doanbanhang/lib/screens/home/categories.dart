@@ -8,8 +8,8 @@ import 'package:doanbanhang/screens/products/xiaomi.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({Key? key}) : super(key: key);
-
+  const Categories({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   _CategoriesState createState() => _CategoriesState();
 }
@@ -27,7 +27,7 @@ class _CategoriesState extends State<Categories> {
           height: 50,
           child: RaisedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Apple()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Apple(iduser: widget.iduser,)));
             },
             color: kTextColor,
             padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -47,7 +47,7 @@ class _CategoriesState extends State<Categories> {
           height: 50,
           child: RaisedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung(iduser: widget.iduser,)));
             },
             color: kTextColor,
             padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -67,7 +67,7 @@ class _CategoriesState extends State<Categories> {
           height: 50,
           child: RaisedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Xiaomi()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Xiaomi(iduser: widget.iduser,)));
             },
             color: kTextColor,
             padding: const EdgeInsets.symmetric(horizontal: 40),

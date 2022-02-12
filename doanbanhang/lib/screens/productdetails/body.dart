@@ -15,8 +15,10 @@ import 'counter_with_fav_button.dart';
 class Body extends StatelessWidget{
   final String? image;
  final Product product;
+ final int iduser;
   const Body({Key? key, required this.image,
-  required this.product
+  required this.product,
+  required this.iduser
   }) : super(key: key);
    @override
   Widget build(BuildContext context) {
@@ -51,7 +53,7 @@ class Body extends StatelessWidget{
                       SizedBox(height: kDefaultPaddin/2,),
                       const CounterWithFavBtn(),
                       SizedBox(height: kDefaultPaddin/2,),
-                       AddToCart(product: product,),
+                       AddToCart(product: product, iduser: iduser,),
                     ],
                   ),
                 ),

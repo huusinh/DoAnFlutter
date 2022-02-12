@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
-class CartItemCard extends StatelessWidget {
-  const CartItemCard({
+class InvoiceItemCard extends StatelessWidget {
+  const InvoiceItemCard({
     Key? key,
     required this.image,
     required this.tittle,
@@ -104,7 +104,16 @@ class CartItemCard extends StatelessWidget {
                 
               ),
             ),
-            CartCounter(idchitietgiohang: id,soluong: soluong,),
+            Text.rich(
+              TextSpan(
+                text: soluong.toString(),
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+                
+              ),
+            ),
           ],
         ),
       ],

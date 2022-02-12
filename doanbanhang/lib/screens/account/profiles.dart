@@ -11,8 +11,8 @@ import 'row_address.dart';
 import 'contact_us.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
-
+  const Profile({Key? key,required this.iduser }) : super(key: key);
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
             icon: const Icon(FontAwesomeIcons.arrowLeft,
             size: 20,),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen(account: [],)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomeScreen(account: [], iduser: iduser,)));
             },
         ),
         title: const Text('Tài khoản'),
@@ -103,7 +103,7 @@ class Profile extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Information()),
+                  MaterialPageRoute(builder: (context) =>  Information(iduser: iduser,)),
                 );
               },
             ),
@@ -137,7 +137,7 @@ class Profile extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const RowAddress()));
+                        builder: (context) =>  RowAddress(iduser: iduser,)));
               },
             ),
           ),
@@ -197,7 +197,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>MyOrder()));
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>MyOrder(iduser: iduser,)));
               },
             ),
           ),
@@ -211,7 +211,7 @@ class Profile extends StatelessWidget {
               color: const Color(0xFFF5F6F9),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ContactUs()));
+                    MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
               },
               child: Row(
                 children: const [

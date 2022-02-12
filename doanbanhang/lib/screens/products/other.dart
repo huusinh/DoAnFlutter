@@ -12,8 +12,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants.dart';
 
 class Other extends StatelessWidget {
-  const Other({Key? key}) : super(key: key);
-
+  const Other({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,20 +28,20 @@ class Other extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen(account: [],)));
+                context, MaterialPageRoute(builder: (context) => HomeScreen(account: [], iduser: iduser,)));
           },
         ),
       ),
-      body: OtherWidget(),
+      body: OtherWidget(iduser: iduser,),
     );
   }
 }
 
 class OtherWidget extends StatelessWidget {
   const OtherWidget({
-    Key? key,
+    Key? key,required this.iduser
   }) : super(key: key);
-
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +84,7 @@ class OtherWidget extends StatelessWidget {
                       itemBuilder: (context, index) => ItemCard(
                           product: snapshot.data![index],
                           press:
-                              () => Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(product:snapshot.data![index]))),
+                              () => Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(product:snapshot.data![index], iduser: iduser,))),
                           ),
                     );
                   } else {

@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'search_widget.dart';
 
 class SearchProduct extends StatefulWidget {
-  const SearchProduct({Key? key}) : super(key: key);
-
+  const SearchProduct({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   _SearchProduct createState() => _SearchProduct();
 }
@@ -99,7 +99,7 @@ class _SearchProduct extends State<SearchProduct> {
         ),
         title: Text(product.tittle),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(product: product)));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(product: product, iduser: widget.iduser,)));
         },
       );
 }

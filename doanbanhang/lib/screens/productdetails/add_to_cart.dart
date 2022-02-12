@@ -12,8 +12,10 @@ class AddToCart extends StatelessWidget {
   const AddToCart({
     Key? key,
     required this.product,
+    required this.iduser
   }) : super(key: key);
   final Product product;
+  final int iduser;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,7 +35,7 @@ class AddToCart extends StatelessWidget {
             child: IconButton(
               icon: Icon(FontAwesomeIcons.shoppingCart, color: Colors.cyan),
               onPressed: () async {
-                var status = await fetchAddtoCart("tentkmuahang", product.id);
+                var status = await fetchAddtoCart(iduser, product.id);
                 if (status == 1) {
                   showDialog(
                       context: context,
@@ -81,7 +83,7 @@ class AddToCart extends StatelessWidget {
                   color: Colors.green,
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Invoice()));
+                        MaterialPageRoute(builder: (context) => Invoice(iduser: iduser,)));
                   },
                   child: Text(
                     "Buy Now".toUpperCase(),

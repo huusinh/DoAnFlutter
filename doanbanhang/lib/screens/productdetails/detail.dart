@@ -6,14 +6,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DetailScreen extends StatelessWidget{
  
-  const DetailScreen({Key? key, required this.product}) : super(key: key);
+  const DetailScreen({Key? key, required this.product,required this.iduser}) : super(key: key);
 final Product product;
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:Colors.black,
       appBar: buildAppBar(context),
-      body: Body(image:product.image,product: product),
+      body: Body(image:product.image,product: product, iduser: iduser,),
     );
   }
 

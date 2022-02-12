@@ -28,3 +28,17 @@ _setHeader() => {
       'Content-Type': 'application/json; charset=utf-8',
       'Accept': 'application/json'
     };
+
+Future<User> infoAccount(int id) async {
+ final response = await http.post(Uri.parse('http://10.0.2.2:8000/api/getInfoAccount'),body: {'id':'$id'});
+  
+if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+   
+   return User.fromJson(json.decode(response.body));
+  } else {
+    
+    throw Exception('Failed to load data');
+  }
+
+  }

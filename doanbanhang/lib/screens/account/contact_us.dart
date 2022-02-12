@@ -3,8 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class ContactUs extends StatefulWidget {
-  const ContactUs({Key? key}) : super(key: key);
-
+  const ContactUs({Key? key,required this.iduser }) : super(key: key);
+final int iduser;
   @override
   _ContactUsState createState() => _ContactUsState();
 }
@@ -20,7 +20,7 @@ class _ContactUsState extends State<ContactUs> {
           color: Colors.white,
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile()));
+                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
           },
         ),
       ),

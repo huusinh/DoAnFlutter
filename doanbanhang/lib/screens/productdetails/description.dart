@@ -2,20 +2,21 @@ import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/models/products_test.dart';
 import 'package:flutter/cupertino.dart';
 
-class Description extends StatelessWidget{
-  const Description({Key? key,
-  required this.product,
+class Description extends StatelessWidget {
+  const Description({
+    Key? key,
+    required this.product,
   }) : super(key: key);
   final Product product;
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
-                            child: Text(
-                              product.description,
-                              style: TextStyle(height: 1.5),
-                            ),
-                          );
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
+      child: Text(
+        product.description,
+        style: TextStyle(height: 1.5),
+      ),
+    );
   }
 }

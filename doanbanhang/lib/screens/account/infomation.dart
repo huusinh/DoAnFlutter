@@ -3,8 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class Information extends StatefulWidget {
-  // ignore: use_key_in_widget_constructors
-  const Information() : super();
+ const Information({Key? key,required this.iduser}) : super(key: key);
+final int iduser;
   @override
   _InformationState createState() => _InformationState();
 }
@@ -38,7 +38,7 @@ class _InformationState extends State<Information> {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile()));
+                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
           },
         ),
       ),

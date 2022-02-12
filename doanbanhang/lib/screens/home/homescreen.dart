@@ -25,18 +25,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget{
   final List <User> account;
-  const HomeScreen({Key? key, required this.account }) : super(key: key);
+  final int iduser;
+  const HomeScreen({Key? key, required this.account, required this.iduser }) : super(key: key);
    @override 
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen>{
   int index=0;
-  final screens=[
-    HomeScreen(account: [],),
-    FavScreen(),
-    Profile(),
-  ];
    @override
   Widget build(BuildContext context) {
   
@@ -64,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen>{
             icon: const Icon(FontAwesomeIcons.search,
             size: 20,),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SearchProduct()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SearchProduct(iduser: widget.iduser,)));
               },
             padding: EdgeInsets.only(right: 160),
           
@@ -74,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen>{
             size: 25,),
             color: kTextColor,
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen(iduser: widget.iduser,)));
             },
           ),
           IconButton(
@@ -88,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen>{
             size: 25,),
             color: kTextColor,
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder:(context)=>  Profile()));
+              Navigator.push(context, MaterialPageRoute(builder:(context)=>  Profile(iduser: widget.iduser,)));
             },
           ),
         ],
@@ -109,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen>{
           
           ),
           SizedBox(height: 30,),
-          const Categories(),
+           Categories(iduser: widget.iduser,),
           
           SizedBox(height: 30,),
           
@@ -124,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen>{
             ],
           ),
           SizedBox(height: 30,),
-          SellOf(),
+          SellOf(iduser: widget.iduser,),
            SizedBox(height: 30,),
             Row(
             children:[ 
@@ -137,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen>{
             ],
           ),
            SizedBox(height: 30,),
-          NewProduct(),
+          NewProduct(iduser: widget.iduser,),
         ],
       ),
       bottomNavigationBar: Theme(
@@ -151,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen>{
         backgroundColor:Colors.transparent,
         height: 60,
         onTap: (index) => setState(() {
-          screens;
+        
         })
       ),
       ),

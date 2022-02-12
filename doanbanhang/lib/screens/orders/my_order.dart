@@ -3,7 +3,8 @@ import 'package:doanbanhang/screens/account/profiles.dart';
 import 'package:flutter/material.dart';
 
 class MyOrder extends StatefulWidget {
-  const MyOrder({Key? key}) : super(key: key);
+  final int iduser;
+  const MyOrder({Key? key,required this.iduser}) : super(key: key);
   @override
   _MyOderState createState() => _MyOderState();
 }
@@ -27,7 +28,7 @@ class _MyOderState extends State<MyOrder> {
           color: Colors.white,
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile()));
+                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
           },
         ),
       ),
@@ -113,7 +114,7 @@ class _MyOderState extends State<MyOrder> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const Information()),
+                        builder: (context) =>  Information(iduser: widget.iduser,)),
                   );
                 },
               ),
@@ -149,7 +150,7 @@ class _MyOderState extends State<MyOrder> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const Information()),
+                        builder: (context) =>  Information(iduser: widget.iduser,)),
                   );
                 },
               ),
@@ -185,7 +186,7 @@ class _MyOderState extends State<MyOrder> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const Information()),
+                        builder: (context) =>  Information(iduser: widget.iduser,)),
                   );
                 },
               ),

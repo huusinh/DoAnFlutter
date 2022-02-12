@@ -8,8 +8,8 @@ import '../../constants.dart';
 import 'itemcard.dart';
 
 class NewProduct extends StatelessWidget {
-  const NewProduct({Key? key}) : super(key: key);
-
+  const NewProduct({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,7 +40,7 @@ class NewProduct extends StatelessWidget {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailScreen(product:snapshot.data![i])));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailScreen(product:snapshot.data![i], iduser: iduser,)));
                               },
                               child: Image.network(
                                 "http://10.0.2.2/images/" +

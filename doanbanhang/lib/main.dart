@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
       ),
-      home: const Login(),
+      home: const HomeScreen(account: [], iduser: 1,),
     );
   }
 }

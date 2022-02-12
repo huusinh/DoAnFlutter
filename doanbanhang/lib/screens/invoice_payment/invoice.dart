@@ -1,3 +1,4 @@
+import 'package:doanbanhang/api/api_total.dart';
 import 'package:doanbanhang/models/products_test.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -5,14 +6,29 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../constants.dart';
 import 'body.dart';
 
-class Invoice extends StatelessWidget{
-  const Invoice({Key? key}) : super(key: key);
+class Invoice extends StatefulWidget{
+  final int iduser;
+  const Invoice({Key? key, required this.iduser}) : super(key: key);
+      @override 
+_InvoiceState createState() => _InvoiceState();
+}
+class _InvoiceState extends State<Invoice>{
 
+var total=0;
+void  getTotal(int id) async {
+   int temp= await gettotal(id);
+    setState(() {
+      total=temp; 
+    });
+  }
+void initState(){
+getTotal(widget.iduser);
+}
  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: Body(id: 1,),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15,
@@ -44,7 +60,7 @@ class Invoice extends StatelessWidget{
                       style: TextStyle(fontSize:30,),
                       children: [
                         TextSpan(
-                          text: "\$240",
+                          text: total.toString(),
                           style: TextStyle(fontSize: 25, color: Colors.black),
                         ),
                       ],
@@ -109,7 +125,7 @@ class Invoice extends StatelessWidget{
       title: Column(
         children: const [
           Text(
-            "#madonhang",
+            "Thanh Toán",
             style: TextStyle(
               color: Colors.black,
             ),

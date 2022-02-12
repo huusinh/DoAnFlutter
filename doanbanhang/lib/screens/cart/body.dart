@@ -10,14 +10,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'cart_item_cart.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
-
+  const Body({Key? key, required this.iduser}) : super(key: key);
+final int iduser;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
        child: FutureBuilder<List<Cart>>(
-        future: fetchGetCart("tentkmuahang"),
+        future: fetchGetCart(iduser),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
@@ -48,7 +48,7 @@ class Body extends StatelessWidget {
               price: snapshot.data![index].price.toInt(),
               id: snapshot.data![index].id.toInt(),
               idsp: snapshot.data![index].idsanpham.toInt(),
-              soluong: snapshot.data![index].soluong.toInt(),
+              soluong: snapshot.data![index].soluong.toInt(), iduser: iduser,
             ),
           ),
         ),

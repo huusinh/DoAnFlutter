@@ -10,34 +10,7 @@ static List<Invoice> parseInvoice(String response) {
 }
 static String host = "http://10.0.2.2:8000/api/";
   List<Invoice> invoices = [];
-
- static Future<List<Cart>> getCartList (var data  ) async {
-  List<Cart> acc = [];
-  String url = host + "account/login";
-   var response = await http.post(Uri.parse(url),
-   headers: _setHeader(),
-   body: jsonEncode(data));
-   if(response.statusCode == 200)
-   {
-     dynamic jsondata = json.decode(response.body);
-     dynamic data = jsondata["data"];
-
-     data.forEach((i){
-       acc.add(Cart.fromJson(i));
-     });
-    
-     return acc;
-   }
-   else
-   {
-     print(response.body);
-     throw Exception("Fail");
-   }
   
-}
-
-
-
 static _setHeader() => {
   'Content-type' : 'application/json; charset=utf-8',
   'Accept' : 'application/json'
