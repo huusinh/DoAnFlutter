@@ -3,7 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'log_in.dart';
 
 class Register extends StatelessWidget{
- const Register({Key? key}): super(key: key);
+ const Register({Key? key,required this.iduser }): super(key: key);
+ final int iduser;
 @override
  Widget build(BuildContext context) {
    return MaterialApp(
@@ -16,7 +17,7 @@ class Register extends StatelessWidget{
             icon: const Icon(FontAwesomeIcons.arrowLeft,
             size: 20,),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Login() ));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Login(iduser: iduser,) ));
             },
         ),
           title: const Text('Đăng kí tài khoản')),

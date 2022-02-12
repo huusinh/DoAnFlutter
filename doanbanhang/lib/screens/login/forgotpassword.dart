@@ -4,7 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'log_in.dart';
 import 'newpassword.dart';
 class ForgotPass extends StatelessWidget{
- const ForgotPass({Key? key}): super(key: key);
+ const ForgotPass({Key? key, required this.iduser}): super(key: key);
+ final int iduser;
  @override 
 Widget build(BuildContext context) {
    return MaterialApp(
@@ -19,7 +20,7 @@ Widget build(BuildContext context) {
             icon: const Icon(FontAwesomeIcons.arrowLeft,
             size: 20,),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Login() ));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Login(iduser: iduser,) ));
             },
         ),
         ),
@@ -85,7 +86,7 @@ Widget build(BuildContext context) {
           Padding(
             padding: const EdgeInsets.all(15),
             child: ElevatedButton(
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>NewPassword()));},
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>NewPassword(iduser: iduser,)));},
               child: const Text('Xác nhận'),
                style: ButtonStyle(
                     backgroundColor:

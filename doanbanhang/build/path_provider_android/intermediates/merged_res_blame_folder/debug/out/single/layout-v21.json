@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\tranh\\.gradle\\caches\\transforms-3\\ca17a2a1cf4cc73a5eb2efd66cdde19f\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\tranh\\.gradle\\caches\\transforms-3\\ca17a2a1cf4cc73a5eb2efd66cdde19f\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\tranh\\.gradle\\caches\\transforms-3\\ca17a2a1cf4cc73a5eb2efd66cdde19f\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\tranh\\.gradle\\caches\\transforms-3\\ca17a2a1cf4cc73a5eb2efd66cdde19f\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action.xml"
+    }
+]

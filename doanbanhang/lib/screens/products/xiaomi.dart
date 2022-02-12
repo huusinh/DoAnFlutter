@@ -14,7 +14,7 @@ import '../../constants.dart';
 
 class Xiaomi extends StatelessWidget {
   const Xiaomi({Key? key, required this.iduser}) : super(key: key);
-final int iduser;
+  final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +29,25 @@ final int iduser;
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen(account: [], iduser: iduser,)));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(
+                          account: [],
+                          iduser: iduser,
+                        )));
           },
         ),
       ),
-      body: XiaomiWidget(iduser: iduser,),
+      body: XiaomiWidget(
+        iduser: iduser,
+      ),
     );
   }
 }
 
 class XiaomiWidget extends StatelessWidget {
-  const XiaomiWidget({
-    Key? key, required this.iduser
-  }) : super(key: key);
-final int iduser;
+  const XiaomiWidget({Key? key, required this.iduser}) : super(key: key);
+  final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,10 +88,15 @@ final int iduser;
                         childAspectRatio: 0.75,
                       ),
                       itemBuilder: (context, index) => ItemCard(
-                          product: snapshot.data![index],
-                          press:
-                              () => Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen(product:snapshot.data![index], iduser: iduser,))),
-                          ),
+                        product: snapshot.data![index],
+                        press: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailScreen(
+                                      product: snapshot.data![index],
+                                      iduser: iduser,
+                                    ))),
+                      ),
                     );
                   } else {
                     return const Center(

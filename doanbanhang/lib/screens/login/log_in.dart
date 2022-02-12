@@ -1,6 +1,7 @@
 import 'package:doanbanhang/api/api_account.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
+import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'register.dart';
 import 'forgotpassword.dart';
@@ -8,33 +9,16 @@ import 'forgotpassword.dart';
 import 'package:doanbanhang/models/account.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({Key? key, required this.iduser}) : super(key: key);
+  final int iduser;
   @override
   Logincreen createState() => Logincreen();
 }
 
 class Logincreen extends State<Login> {
   bool isHiddenPassword = true;
-  TextEditingController email=new TextEditingController();
-  TextEditingController password=new TextEditingController();
-  Future Login() async
-  {
-    Map<String ,String > data ={
-      'email' : email.text,
-      'password'  : password.text,
-      
-    };
-    List<User> res = await login(data);
-    if( res.length ==1)
-    {
-      print("chao cac ban");
-      //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen(account: res)));
-    }
-    else
-    {
-      print("Khong thanh cong");
-    }
-  }
+  TextEditingController email = TextEditingController(text: "linhquan@gmail.com");
+  TextEditingController password = TextEditingController(text: "123456");
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,9 +32,7 @@ class Logincreen extends State<Login> {
         ),
         body: Container(
           decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/hublot1.png'),
-                fit: BoxFit.cover),
+            image: DecorationImage(image: AssetImage('assets/images/hublot1.png'), fit: BoxFit.cover),
           ),
           child: Center(
             child: ListView(
@@ -75,7 +57,7 @@ class Logincreen extends State<Login> {
                           ),
                           child: TextField(
                             controller: email,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Tài khoản',
                               labelText: 'Tài khoản',
@@ -85,7 +67,7 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white10.withOpacity(1),
@@ -95,13 +77,13 @@ class Logincreen extends State<Login> {
                             controller: password,
                             obscureText: isHiddenPassword,
                             decoration: InputDecoration(
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               hintText: 'Mật khẩu',
                               labelText: 'Mật khẩu',
-                              prefixIcon: Icon(Icons.security),
+                              prefixIcon: const Icon(Icons.security),
                               suffixIcon: InkWell(
-                                onTap: _TongglePasswordView,
-                                child: Icon(
+                                onTap: () => setState(() => isHiddenPassword = !isHiddenPassword),
+                                child: const Icon(
                                   Icons.visibility,
                                 ),
                               ),
@@ -110,7 +92,7 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           'Quên mật khẩu',
                           textAlign: TextAlign.end,
                           style: TextStyle(
@@ -123,32 +105,34 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => ForgotPass()),
+                            MaterialPageRoute(builder: (context) => ForgotPass(iduser: widget.iduser,)),
                           );
                         },
                       ),
                       Padding(
+                        //login
                         padding: const EdgeInsets.all(15),
                         child: ElevatedButton(
-                          onPressed: () {
-                           Login();
+                          onPressed: () async {
+                            final kq = await apiLogin(email.text, password.text);
+                            if (kq.email.isNotEmpty) {
+                              Auth.user = kq;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomeScreen(iduser: widget.iduser, account: [],)));
+                            }
                           },
                           child: const Text('Đăng Nhập'),
                           style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.orange),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18),
-                                side: BorderSide(color: Colors.orange),
+                                side: const BorderSide(color: Colors.orange),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Bạn chưa có tài khoản ?',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -158,7 +142,7 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       TextButton(
-                        child: Text(
+                        child: const Text(
                           'Đăng kí',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -171,26 +155,24 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Register()),
+                            MaterialPageRoute(builder: (context) => Register(iduser: widget.iduser,)),
                           );
                         },
                       ),
                       Padding(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: SizedBox(
                           height: 30,
                           child: ElevatedButton.icon(
                             onPressed: () {},
-                            icon: Icon(Icons.facebook),
-                            label: Text("Dang nhap bằng Facebook"),
+                            icon: const Icon(Icons.facebook),
+                            label: const Text("Dang nhap bằng Facebook"),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
-                                  side: BorderSide(color: Colors.orange),
+                                  side: const BorderSide(color: Colors.orange),
                                 ),
                               ),
                             ),
@@ -198,21 +180,19 @@ class Logincreen extends State<Login> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: SizedBox(
                           height: 30,
                           child: ElevatedButton.icon(
                             onPressed: () {},
-                            icon: Icon(Icons.mail),
-                            label: Text("Dang nhap bằng Gmail"),
+                            icon: const Icon(Icons.mail),
+                            label: const Text("Dang nhap bằng Gmail"),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.orange),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
-                                  side: BorderSide(color: Colors.orange),
+                                  side: const BorderSide(color: Colors.orange),
                                 ),
                               ),
                             ),
@@ -228,11 +208,5 @@ class Logincreen extends State<Login> {
         ),
       ),
     );
-  }
-
-  void _TongglePasswordView() {
-    setState(() {
-      isHiddenPassword = !isHiddenPassword;
-    });
   }
 }

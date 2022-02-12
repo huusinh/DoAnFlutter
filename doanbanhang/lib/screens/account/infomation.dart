@@ -1,3 +1,4 @@
+import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
@@ -9,20 +10,10 @@ final int iduser;
   _InformationState createState() => _InformationState();
 }
 
-class _InformationState extends State<Information> {
-  late int selectedRadio;
-  @override
-  void initState() {
-    super.initState();
-    selectedRadio = 0;
-  }
+enum GioiTinh { Nam, Nu }
 
-  setSelectedRadio(int val) {
-    setState(() {
-      selectedRadio = val;
-    });
-  }
-  //
+class _InformationState extends State<Information> {
+  GioiTinh selectedRadio = Auth.user.gioiTinh == "nam" ? GioiTinh.Nam : GioiTinh.Nu;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +30,7 @@ class _InformationState extends State<Information> {
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
           },
         ),
       ),
@@ -48,12 +40,12 @@ class _InformationState extends State<Information> {
           children: [
             const Padding(padding: EdgeInsets.all(20)),
             const SizedBox(height: 15),
-            const Center(
+            Center(
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Họ & tên',
+                  labelText: Auth.user.name,
                   hintText: 'Trần Văn A',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
@@ -64,10 +56,7 @@ class _InformationState extends State<Information> {
             const SizedBox(height: 25),
             const Text(
               'Giới tính',
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Row(
               children: <Widget>[
@@ -80,12 +69,10 @@ class _InformationState extends State<Information> {
                         fontSize: 16,
                       ),
                     ),
-                    Radio(
-                      value: 1,
+                    Radio<GioiTinh>(
+                      value: GioiTinh.Nam,
                       groupValue: selectedRadio,
-                      onChanged: (val) {
-                        setSelectedRadio(1);
-                      },
+                      onChanged: (val) => setState(() => selectedRadio = val!),
                     ),
                   ],
                 ),
@@ -98,24 +85,22 @@ class _InformationState extends State<Information> {
                         fontSize: 16,
                       ),
                     ),
-                    Radio(
-                      value: 2,
+                    Radio<GioiTinh>(
+                      value: GioiTinh.Nu,
                       groupValue: selectedRadio,
-                      onChanged: (val) {
-                        setSelectedRadio(2);
-                      },
+                      onChanged: (val) => setState(() => selectedRadio = val!),
                     ),
                   ],
                 )
               ],
             ),
             const SizedBox(height: 10),
-            const Center(
+            Center(
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Ngày sinh',
+                  labelText: Auth.user.ngaySinh,
                   hintText: '17/12/2001',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
@@ -124,12 +109,12 @@ class _InformationState extends State<Information> {
               ),
             ),
             const SizedBox(height: 20),
-            const Center(
+            Center(
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Địa chỉ',
+                  labelText: Auth.user.diachi,
                   hintText: '113 CMT8/Quận 10/TP.HCM',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
@@ -138,12 +123,12 @@ class _InformationState extends State<Information> {
               ),
             ),
             const SizedBox(height: 20),
-            const Center(
+            Center(
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: Auth.user.email,
                   hintText: 'watchshop@gmail.com',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
@@ -151,19 +136,19 @@ class _InformationState extends State<Information> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            const Center(
+            SizedBox(height: 20),
+            Center(
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Số điện thoại',
+                  labelText: Auth.user.sodienthoai,
                   hintText: '0123456789',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
                 ),
-                 keyboardType: TextInputType.number,
+                keyboardType: TextInputType.number,
               ),
             ),
             const SizedBox(height: 45),

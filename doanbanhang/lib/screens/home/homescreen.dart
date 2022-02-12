@@ -24,15 +24,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class HomeScreen extends StatefulWidget{
+
   final List <User> account;
   final int iduser;
   const HomeScreen({Key? key, required this.account, required this.iduser }) : super(key: key);
+
    @override 
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen>{
   int index=0;
+
+ 
    @override
   Widget build(BuildContext context) {
   
@@ -51,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen>{
             icon: const Icon(FontAwesomeIcons.arrowLeft,
             size: 20,),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Login() ));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Login(iduser: widget.iduser,) ));
             },
         ),
         

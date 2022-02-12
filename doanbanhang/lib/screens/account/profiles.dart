@@ -1,5 +1,3 @@
-
-
 import 'package:doanbanhang/screens/fav_screen/fav_screen.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/orders/my_order.dart';
@@ -37,15 +35,9 @@ final int iduser;
                   width: 115,
                   height: 115,
                   decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 4.0,
-                        color: Theme.of(context).scaffoldBackgroundColor),
+                    border: Border.all(width: 4.0, color: Theme.of(context).scaffoldBackgroundColor),
                     boxShadow: [
-                      BoxShadow(
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          color: Colors.black.withOpacity(0.1),
-                          offset: const Offset(0, 10)),
+                      BoxShadow(spreadRadius: 2, blurRadius: 10, color: Colors.black.withOpacity(0.1), offset: const Offset(0, 10)),
                     ],
                     shape: BoxShape.circle,
                     image: const DecorationImage(
@@ -80,8 +72,7 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -113,8 +104,7 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -138,6 +128,9 @@ final int iduser;
                     context,
                     MaterialPageRoute(
                         builder: (context) =>  RowAddress(iduser: iduser,)));
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>  RowAddress(iduser: iduser,)));
+
               },
             ),
           ),
@@ -146,8 +139,7 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -167,7 +159,7 @@ final int iduser;
                 ],
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>FavScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FavScreen()));
               },
             ),
           ),
@@ -176,8 +168,7 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -197,7 +188,10 @@ final int iduser;
                 ],
               ),
               onPressed: () {
+
                 Navigator.push(context,MaterialPageRoute(builder: (context)=>MyOrder(iduser: iduser,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder(iduser: iduser,)));
+
               },
             ),
           ),
@@ -206,12 +200,12 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
               },
               child: Row(
                 children: const [
