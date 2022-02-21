@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:doanbanhang/constants.dart';
@@ -16,34 +15,31 @@ import 'package:doanbanhang/screens/home/new_product_screen.dart';
 import 'package:doanbanhang/screens/home/sell_of_screen.dart';
 import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:doanbanhang/screens/productdetails/detail.dart';
+import 'package:doanbanhang/screens/products/apple.dart';
+import 'package:doanbanhang/screens/products/samsung.dart';
 import 'package:doanbanhang/screens/search_product/search.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
-
-class HomeScreen extends StatefulWidget{
-
-  final List <User> account;
+class HomeScreen extends StatefulWidget {
+  final List<User> account;
   final int iduser;
-  const HomeScreen({Key? key, required this.account, required this.iduser }) : super(key: key);
+  const HomeScreen({Key? key, required this.account, required this.iduser})
+      : super(key: key);
 
-   @override 
+  @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>{
-  int index=0;
+class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
 
- 
-   @override
+  @override
   Widget build(BuildContext context) {
-  
-    final items =<Widget>[
-      Icon(Icons.home, size:30),
-      Icon(Icons.favorite, size:30),
-      Icon(Icons.person, size:30),
+    final items = <Widget>[
+      Icon(Icons.home, size: 30),
+      Icon(Icons.favorite, size: 30),
+      Icon(Icons.person, size: 30),
     ];
     return Scaffold(
       extendBody: true,
@@ -52,43 +48,71 @@ class _HomeScreenState extends State<HomeScreen>{
         foregroundColor: Colors.black,
         elevation: 0,
         leading: IconButton(
-            icon: const Icon(FontAwesomeIcons.arrowLeft,
-            size: 20,),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Login(iduser: widget.iduser,) ));
-            },
+          icon: const Icon(
+            FontAwesomeIcons.arrowLeft,
+            size: 20,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Login(
+                          iduser: widget.iduser,
+                        )));
+          },
         ),
-        
         actions: <Widget>[
           IconButton(
-            icon: const Icon(FontAwesomeIcons.search,
-            size: 20,),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SearchProduct(iduser: widget.iduser,)));
-              },
+            icon: const Icon(
+              FontAwesomeIcons.search,
+              size: 20,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SearchProduct(
+                            iduser: widget.iduser,
+                          )));
+            },
             padding: EdgeInsets.only(right: 160),
-          
-        ),
+          ),
           IconButton(
-            icon: const Icon(FontAwesomeIcons.shoppingCart,
-            size: 25,),
+            icon: const Icon(
+              FontAwesomeIcons.shoppingCart,
+              size: 25,
+            ),
             color: kTextColor,
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen(iduser: widget.iduser,)));
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CartScreen(
+                            iduser: widget.iduser,
+                          )));
             },
           ),
           IconButton(
-            icon: const Icon(FontAwesomeIcons.bell,
-            size: 25,),
+            icon: const Icon(
+              FontAwesomeIcons.bell,
+              size: 25,
+            ),
             color: kTextColor,
-            onPressed: (){},
+            onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(FontAwesomeIcons.user,
-            size: 25,),
+            icon: const Icon(
+              FontAwesomeIcons.user,
+              size: 25,
+            ),
             color: kTextColor,
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder:(context)=>  Profile(iduser: widget.iduser,)));
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Profile(
+                            iduser: widget.iduser,
+                          )));
             },
           ),
         ],
@@ -100,60 +124,97 @@ class _HomeScreenState extends State<HomeScreen>{
               autoPlay: true,
             ),
             items: [
-            
-          Image.asset('assets/images/banner.jpg',fit: BoxFit.cover,width: 1300,),
-          Image.asset('assets/images/banner1.jpg',fit: BoxFit.cover,width: 1300),
-          Image.asset('assets/images/banner2.jpg',fit: BoxFit.cover,width: 1300),
-         
-          ],
-          
+              Image.asset(
+                'assets/images/banner.jpg',
+                fit: BoxFit.cover,
+                width: 1300,
+              ),
+              Image.asset('assets/images/banner1.jpg',
+                  fit: BoxFit.cover, width: 1300),
+              Image.asset('assets/images/banner2.jpg',
+                  fit: BoxFit.cover, width: 1300),
+            ],
           ),
-          SizedBox(height: 30,),
-           Categories(iduser: widget.iduser,),
-          
-          SizedBox(height: 30,),
-          
+          SizedBox(
+            height: 30,
+          ),
+          Categories(
+            iduser: widget.iduser,
+          ),
+          SizedBox(
+            height: 30,
+          ),
           Row(
-            children:[ 
-              SizedBox(width: 5,),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // SizedBox(
+              //   width: 5,
+              // ),
               Text(
-            "Sell off",
-            style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
-            textAlign: TextAlign.left,
-          ),
+                "Sell off",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung(iduser: widget.iduser)));
+                },
+                child: Text(
+                  "See all",
+                  style: TextStyle(color: Colors.black54),
+                ),
+              )
             ],
           ),
-          SizedBox(height: 30,),
-          SellOf(iduser: widget.iduser,),
-           SizedBox(height: 30,),
-            Row(
-            children:[ 
-              SizedBox(width: 5,),
-              Text(
-            "New Product",
-            style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
-            textAlign: TextAlign.left,
+          SizedBox(
+            height: 30,
           ),
+          SellOf(
+            iduser: widget.iduser,
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // SizedBox(
+              //   width: 5,
+              // ),
+              Text(
+                "New Product",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Apple(iduser: widget.iduser)));
+                },
+                child: Text(
+                  "See all",
+                  style: TextStyle(color: Colors.black54),
+                ),
+              )
             ],
           ),
-           SizedBox(height: 30,),
-          NewProduct(iduser: widget.iduser,),
+          SizedBox(
+            height: 30,
+          ),
+          NewProduct(
+            iduser: widget.iduser,
+          ),
         ],
       ),
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          iconTheme:IconThemeData(color: Colors.white)
-        ),
-      child:CurvedNavigationBar(
-        items: items,
-        color: Colors.blue,
-        buttonBackgroundColor: Colors.pink,
-        backgroundColor:Colors.transparent,
-        height: 60,
-        onTap: (index) => setState(() {
-        
-        })
-      ),
+        data: Theme.of(context)
+            .copyWith(iconTheme: IconThemeData(color: Colors.white)),
+        child: CurvedNavigationBar(
+            items: items,
+            color: Colors.blue,
+            buttonBackgroundColor: Colors.pink,
+            backgroundColor: Colors.transparent,
+            height: 60,
+            onTap: (index) => setState(() {})),
       ),
     );
   }

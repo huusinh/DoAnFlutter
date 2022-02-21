@@ -1,15 +1,14 @@
-
-
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/screens/products/apple.dart';
 import 'package:doanbanhang/screens/products/samsung.dart';
 import 'package:doanbanhang/screens/products/xiaomi.dart';
 //import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Categories extends StatefulWidget {
   const Categories({Key? key, required this.iduser}) : super(key: key);
-final int iduser;
+  final int iduser;
   @override
   _CategoriesState createState() => _CategoriesState();
 }
@@ -20,87 +19,106 @@ class _CategoriesState extends State<Categories> {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ButtonTheme(
-          minWidth: 10,
-          height: 50,
-          child: RaisedButton(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Padding(padding: EdgeInsets.symmetric(vertical: 4)),
+          OutlinedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Apple(iduser: widget.iduser,)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Apple(
+                            iduser: widget.iduser,
+                          )));
             },
-            color: kTextColor,
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: const Text(
-              'Apple',
-              style: TextStyle(
-                  fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+            style: OutlinedButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPaddin / 4, vertical: kDefaultPaddin / 2),
+              child: Column(children: [
+                SvgPicture.asset("assets/icons/samsung.svg"),
+                const SizedBox(
+                  height: kDefaultPaddin / 2,
+                ),
+                Text("Apple", style: Theme.of(context).textTheme.subtitle2)
+              ]),
             ),
           ),
-        ),
-        SizedBox(width: 5,),
-        ButtonTheme(
-          minWidth: 10,
-          height: 50,
-          child: RaisedButton(
+          SizedBox(
+            width: 5,
+          ),
+          OutlinedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung(iduser: widget.iduser,)));
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung(iduser: widget.iduser,)));
             },
-            color: kTextColor,
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: const Text(
-              'Samsung',
-              style: TextStyle(
-                  fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+            style: OutlinedButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPaddin / 4, vertical: kDefaultPaddin / 2),
+              child: Column(children: [
+                SvgPicture.asset("assets/icons/samsung.svg"),
+                const SizedBox(
+                  height: kDefaultPaddin / 2,
+                ),
+                Text("Samsung", style: Theme.of(context).textTheme.subtitle2)
+              ]),
             ),
           ),
-        ),
-        SizedBox(width: 5,),
-        ButtonTheme(
-          minWidth: 10,
-          height: 50,
-          child: RaisedButton(
+          SizedBox(
+            width: 5,
+          ),
+          OutlinedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> Xiaomi(iduser: widget.iduser,)));
             },
-            color: kTextColor,
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: const Text(
-              'Xiaomi',
-              style: TextStyle(
-                  fontSize: 14, letterSpacing: 2.2, color: Colors.white),
-            ),
-          ),
-        ),
-        SizedBox(width: 5,),
-        ButtonTheme(
-          minWidth: 10,
-          height: 50,
-          child: RaisedButton(
-            onPressed: () {},
-            color: kTextColor,
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: const Text(
-              'SmartWatch',
-              style: TextStyle(
-                  fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+            style: OutlinedButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPaddin / 4, vertical: kDefaultPaddin / 2),
+              child: Column(children: [
+                SvgPicture.asset("assets/icons/samsung.svg"),
+                const SizedBox(
+                  height: kDefaultPaddin / 2,
+                ),
+                Text("Xiaomi", style: Theme.of(context).textTheme.subtitle2)
+              ]),
             ),
           ),
-        ),
-      ],
-    ),
+          SizedBox(
+            width: 5,
+          ),
+          OutlinedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Apple(
+                            iduser: widget.iduser,
+                          )));
+            },
+            style: OutlinedButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPaddin / 4, vertical: kDefaultPaddin / 2),
+              child: Column(children: [
+                SvgPicture.asset("assets/icons/samsung.svg"),
+                const SizedBox(
+                  height: kDefaultPaddin / 2,
+                ),
+                Text("Others", style: Theme.of(context).textTheme.subtitle2)
+              ]),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
