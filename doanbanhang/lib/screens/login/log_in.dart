@@ -5,20 +5,19 @@ import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'register.dart';
 import 'forgotpassword.dart';
-
 import 'package:doanbanhang/models/account.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key, required this.iduser}) : super(key: key);
   final int iduser;
+  const Login({Key? key, required this.iduser}) : super(key: key);
   @override
   Logincreen createState() => Logincreen();
 }
 
 class Logincreen extends State<Login> {
   bool isHiddenPassword = true;
-  TextEditingController email = TextEditingController(text: "linhquan@gmail.com");
-  TextEditingController password = TextEditingController(text: "123456");
+  TextEditingController taikhoan = TextEditingController(text: "linhquan@gmail.com");
+  TextEditingController matkhau = TextEditingController(text: "123456");
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,7 +55,7 @@ class Logincreen extends State<Login> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: TextField(
-                            controller: email,
+                            controller: taikhoan,
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Tài khoản',
@@ -74,7 +73,7 @@ class Logincreen extends State<Login> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: TextField(
-                            controller: password,
+                            controller: matkhau,
                             obscureText: isHiddenPassword,
                             decoration: InputDecoration(
                               border: const OutlineInputBorder(),
@@ -105,7 +104,10 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ForgotPass(iduser: widget.iduser,)),
+                            MaterialPageRoute(
+                                builder: (context) => ForgotPass(
+                                      iduser: widget.iduser,
+                                    )),
                           );
                         },
                       ),
@@ -114,10 +116,16 @@ class Logincreen extends State<Login> {
                         padding: const EdgeInsets.all(15),
                         child: ElevatedButton(
                           onPressed: () async {
-                            final kq = await apiLogin(email.text, password.text);
+                            final kq = await apiLogin(taikhoan.text, matkhau.text);
                             if (kq.email.isNotEmpty) {
                               Auth.user = kq;
-                              Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomeScreen(iduser: widget.iduser, account: [],)));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeScreen(
+                                            iduser: widget.iduser,
+                                            account: [],
+                                          )));
                             }
                           },
                           child: const Text('Đăng Nhập'),
@@ -155,7 +163,10 @@ class Logincreen extends State<Login> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Register(iduser: widget.iduser,)),
+                            MaterialPageRoute(
+                                builder: (context) => Register(
+                                      iduser: widget.iduser,
+                                    )),
                           );
                         },
                       ),

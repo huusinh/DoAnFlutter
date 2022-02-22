@@ -10,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,10 +17,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
-       textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
       ),
-      home: const HomeScreen(account: [], iduser: 1,),
+      home: const Login(
+        iduser: 1,
+      ),
     );
   }
 }
-

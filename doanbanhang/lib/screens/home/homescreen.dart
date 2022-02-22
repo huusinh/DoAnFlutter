@@ -24,8 +24,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeScreen extends StatefulWidget {
   final List<User> account;
   final int iduser;
-  const HomeScreen({Key? key, required this.account, required this.iduser})
-      : super(key: key);
+  const HomeScreen({Key? key, required this.account, required this.iduser}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -129,10 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover,
                 width: 1300,
               ),
-              Image.asset('assets/images/banner1.jpg',
-                  fit: BoxFit.cover, width: 1300),
-              Image.asset('assets/images/banner2.jpg',
-                  fit: BoxFit.cover, width: 1300),
+              Image.asset('assets/images/banner1.jpg', fit: BoxFit.cover, width: 1300),
+              Image.asset('assets/images/banner2.jpg', fit: BoxFit.cover, width: 1300),
             ],
           ),
           SizedBox(
@@ -157,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung(iduser: widget.iduser)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Samsung(iduser: widget.iduser)));
                 },
                 child: Text(
                   "See all",
@@ -188,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Apple(iduser: widget.iduser)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Apple(iduser: widget.iduser)));
                 },
                 child: Text(
                   "See all",
@@ -206,8 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: Theme(
-        data: Theme.of(context)
-            .copyWith(iconTheme: IconThemeData(color: Colors.white)),
+        data: Theme.of(context).copyWith(iconTheme: IconThemeData(color: Colors.white)),
         child: CurvedNavigationBar(
             items: items,
             color: Colors.blue,

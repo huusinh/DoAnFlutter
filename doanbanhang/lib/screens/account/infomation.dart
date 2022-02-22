@@ -1,11 +1,16 @@
+import 'package:doanbanhang/api/api_accountcapnhat.dart';
+import 'package:doanbanhang/models/account.dart';
+import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class Information extends StatefulWidget {
- const Information({Key? key,required this.iduser}) : super(key: key);
-final int iduser;
+  final int iduser;
+  // ignore: use_key_in_widget_constructors
+  Information({Key? key, required this.iduser}) : super(key:key);
+
   @override
   _InformationState createState() => _InformationState();
 }
@@ -13,8 +18,13 @@ final int iduser;
 enum GioiTinh { Nam, Nu }
 
 class _InformationState extends State<Information> {
-  GioiTinh selectedRadio = Auth.user.gioiTinh == "nam" ? GioiTinh.Nam : GioiTinh.Nu;
+  GioiTinh selectedRadio = Auth.user.gioiTinh == 1 ? GioiTinh.Nam : GioiTinh.Nu;
 
+  TextEditingController ten = TextEditingController(text: Auth.user.name.toString());
+  TextEditingController taikhoan = TextEditingController(text: Auth.user.email.toString());
+  TextEditingController ngaysinh = TextEditingController(text: Auth.user.ngaySinh.toString());
+  TextEditingController diachi = TextEditingController(text: Auth.user.diaChi.toString());
+  TextEditingController sdt = TextEditingController(text: Auth.user.sDT.toString());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +38,6 @@ class _InformationState extends State<Information> {
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
             Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
           },
         ),
@@ -42,9 +50,10 @@ class _InformationState extends State<Information> {
             const SizedBox(height: 15),
             Center(
               child: TextField(
+                controller: ten,
                 decoration: InputDecoration(
                   labelText: Auth.user.name,
-                  hintText: 'Trần Văn A',
+                  hintText: Auth.user.name.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -97,9 +106,10 @@ class _InformationState extends State<Information> {
             const SizedBox(height: 10),
             Center(
               child: TextField(
+                controller: ngaysinh,
                 decoration: InputDecoration(
                   labelText: Auth.user.ngaySinh,
-                  hintText: '17/12/2001',
+                  hintText: Auth.user.ngaySinh.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -111,9 +121,10 @@ class _InformationState extends State<Information> {
             const SizedBox(height: 20),
             Center(
               child: TextField(
+                controller: diachi,
                 decoration: InputDecoration(
-                  labelText: Auth.user.diachi,
-                  hintText: '113 CMT8/Quận 10/TP.HCM',
+                  labelText: Auth.user.diaChi,
+                  hintText: Auth.user.diaChi.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -125,9 +136,10 @@ class _InformationState extends State<Information> {
             const SizedBox(height: 20),
             Center(
               child: TextField(
+                controller: taikhoan,
                 decoration: InputDecoration(
                   labelText: Auth.user.email,
-                  hintText: 'watchshop@gmail.com',
+                  hintText: Auth.user.email.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -139,9 +151,10 @@ class _InformationState extends State<Information> {
             SizedBox(height: 20),
             Center(
               child: TextField(
+                controller: sdt,
                 decoration: InputDecoration(
-                  labelText: Auth.user.sodienthoai,
-                  hintText: '0123456789',
+                  labelText: Auth.user.sDT,
+                  hintText: Auth.user.sDT.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -162,7 +175,18 @@ class _InformationState extends State<Information> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  final user = Auth.user;
+                  user.name = ten.text;
+                  user.email = taikhoan.text;
+                  user.gioiTinh = selectedRadio == GioiTinh.Nam ? 1 : 0;
+                  user.ngaySinh = ngaysinh.text;
+                  user.diaChi = diachi.text;
+                  user.sDT = sdt.text;
+
+                  Auth.user = await apiCapnhat(user);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(iduser: widget.iduser, account: [],)));
+                },
               ),
             ),
           ],

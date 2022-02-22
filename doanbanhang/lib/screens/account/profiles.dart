@@ -1,5 +1,6 @@
 import 'package:doanbanhang/screens/fav_screen/fav_screen.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
+import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:doanbanhang/screens/orders/my_order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,18 +10,27 @@ import 'row_address.dart';
 import 'contact_us.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key,required this.iduser }) : super(key: key);
-final int iduser;
+  final int iduser;
+  const Profile({Key? key, required this.iduser}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: const Icon(FontAwesomeIcons.arrowLeft,
-            size: 20,),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomeScreen(account: [], iduser: iduser,)));
-            },
+          icon: const Icon(
+            FontAwesomeIcons.arrowLeft,
+            size: 20,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(
+                          iduser: iduser,
+                          account: [],
+                        )));
+          },
         ),
         title: const Text('Tài khoản'),
       ),
@@ -94,7 +104,10 @@ final int iduser;
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  Information(iduser: iduser,)),
+                  MaterialPageRoute(
+                      builder: (context) => Information(
+                            iduser: iduser,
+                          )),
                 );
               },
             ),
@@ -127,10 +140,9 @@ final int iduser;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>  RowAddress(iduser: iduser,)));
-
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  RowAddress(iduser: iduser,)));
-
+                        builder: (context) => RowAddress(
+                              iduser: iduser,
+                            )));
               },
             ),
           ),
@@ -188,10 +200,12 @@ final int iduser;
                 ],
               ),
               onPressed: () {
-
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>MyOrder(iduser: iduser,)));
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder(iduser: iduser,)));
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MyOrder(
+                              iduser: iduser,
+                            )));
               },
             ),
           ),
@@ -203,9 +217,12 @@ final int iduser;
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ContactUs(
+                              iduser: iduser,
+                            )));
               },
               child: Row(
                 children: const [
@@ -223,6 +240,30 @@ final int iduser;
                   )),
                   Icon(Icons.arrow_forward_ios)
                 ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Login(
+                            iduser: iduser,
+                          )),
+                );
+              },
+              child: const Text('Logout'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                    side: const BorderSide(color: Colors.orange),
+                  ),
+                ),
               ),
             ),
           ),

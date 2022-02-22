@@ -1,5 +1,6 @@
 import 'package:doanbanhang/api/api_total.dart';
 import 'package:doanbanhang/models/products_test.dart';
+import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -28,7 +29,7 @@ getTotal(widget.iduser);
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(id: 1,),
+      body: Body(id: Auth.user.id!,),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15,

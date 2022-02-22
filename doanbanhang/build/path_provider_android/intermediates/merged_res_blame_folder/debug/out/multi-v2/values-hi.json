@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\values-hi\\values-hi.xml",
+            "outputFile": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tranh\\.gradle\\caches\\transforms-3\\ca17a2a1cf4cc73a5eb2efd66cdde19f\\transformed\\core-1.6.0\\res\\values-hi\\values-hi.xml",
+                    "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values-hi\\values-hi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
+            "outputFile": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\values-hi\\values-hi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tranh\\.gradle\\caches\\transforms-3\\ca17a2a1cf4cc73a5eb2efd66cdde19f\\transformed\\core-1.6.0\\res\\values-hi\\values-hi.xml",
+                    "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values-hi\\values-hi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
