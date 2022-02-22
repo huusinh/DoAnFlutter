@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tranh\\Desktop\\UpdateGit\\doanbanhang\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

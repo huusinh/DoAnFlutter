@@ -8,16 +8,16 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class InvoiceItemCard extends StatelessWidget {
-  const InvoiceItemCard({
-    Key? key,
-    required this.image,
-    required this.tittle,
-    required this.price,
-    required this.id,
-    required this.idsp,
-    required this.soluong,
-    required this.iduser
-  }) : super(key: key);
+  const InvoiceItemCard(
+      {Key? key,
+      required this.image,
+      required this.tittle,
+      required this.price,
+      required this.id,
+      required this.idsp,
+      required this.soluong,
+      required this.iduser})
+      : super(key: key);
 
   final String image, tittle;
   final int price, id, idsp, soluong;
@@ -37,7 +37,7 @@ class InvoiceItemCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: CachedNetworkImage(
-                imageUrl: "http://10.0.2.2/images/" + image,
+                imageUrl: "http://10.0.2.2:8000/images/" + image,
                 placeholder: (context, url) => const Center(
                   child: CircularProgressIndicator(),
                 ),
@@ -61,7 +61,9 @@ class InvoiceItemCard extends StatelessWidget {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => CartScreen(iduser: iduser,)));
+                                builder: (context) => CartScreen(
+                                      iduser: iduser,
+                                    )));
                       } else {
                         showDialog(
                             context: context,
@@ -87,8 +89,7 @@ class InvoiceItemCard extends StatelessWidget {
             Text(
               tittle,
               softWrap: false,
-                overflow: TextOverflow.ellipsis,
-              
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
             const SizedBox(
@@ -101,7 +102,6 @@ class InvoiceItemCard extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   color: Colors.red,
                 ),
-                
               ),
             ),
             Text.rich(
@@ -111,7 +111,6 @@ class InvoiceItemCard extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
-                
               ),
             ),
           ],

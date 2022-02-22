@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Address extends StatelessWidget{
+class Address extends StatelessWidget {
   const Address({Key? key}) : super(key: key);
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[100],
+        backgroundColor: Colors.orange,
         foregroundColor: Colors.black,
         elevation: 0,
         leading: IconButton(
@@ -18,9 +18,12 @@ class Address extends StatelessWidget{
             Navigator.pop(context);
           },
         ),
-        title: const Text('Địa chỉ giao hàng', textAlign: TextAlign.center,),
+        title: const Text(
+          'Địa chỉ giao hàng',
+          textAlign: TextAlign.center,
+        ),
       ),
-      body:ListView(
+      body: ListView(
         padding: EdgeInsets.all(32),
         children: const [
           TextField(
@@ -30,7 +33,9 @@ class Address extends StatelessWidget{
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Số điện thoại',
@@ -38,7 +43,9 @@ class Address extends StatelessWidget{
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Tỉnh/Thành phố',
@@ -46,7 +53,9 @@ class Address extends StatelessWidget{
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Quận/Huyện',
@@ -54,7 +63,9 @@ class Address extends StatelessWidget{
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Phường/Xã',
@@ -62,7 +73,9 @@ class Address extends StatelessWidget{
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Địa chỉ cụ thể(số nhà, tòa nhà...)',
@@ -71,7 +84,7 @@ class Address extends StatelessWidget{
             ),
           ),
         ],
-      ) ,
+      ),
     );
   }
 }

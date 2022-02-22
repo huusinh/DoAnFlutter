@@ -1,34 +1,39 @@
 import 'package:doanbanhang/api/api_total.dart';
 import 'package:doanbanhang/models/products_test.dart';
+import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants.dart';
 import 'body.dart';
 
-class Invoice extends StatefulWidget{
+class Invoice extends StatefulWidget {
   final int iduser;
   const Invoice({Key? key, required this.iduser}) : super(key: key);
-      @override 
-_InvoiceState createState() => _InvoiceState();
+  @override
+  _InvoiceState createState() => _InvoiceState();
 }
-class _InvoiceState extends State<Invoice>{
 
-var total=0;
-void  getTotal(int id) async {
-   int temp= await gettotal(id);
+class _InvoiceState extends State<Invoice> {
+  var total = 0;
+  void getTotal(int id) async {
+    int temp = await gettotal(id);
     setState(() {
-      total=temp; 
+      total = temp;
     });
   }
-void initState(){
-getTotal(widget.iduser);
-}
- @override
+
+  void initState() {
+    getTotal(widget.iduser);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(id: 1,),
+      body: Body(
+        id: 1,
+      ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15,
@@ -49,7 +54,7 @@ getTotal(widget.iduser);
         ),
         child: SafeArea(
           child: Column(
-            crossAxisAlignment:CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
@@ -57,7 +62,9 @@ getTotal(widget.iduser);
                   Text.rich(
                     TextSpan(
                       text: "Total:\n",
-                      style: TextStyle(fontSize:30,),
+                      style: TextStyle(
+                        fontSize: 30,
+                      ),
                       children: [
                         TextSpan(
                           text: total.toString(),
@@ -68,7 +75,7 @@ getTotal(widget.iduser);
                   ),
                 ],
               ),
-              SizedBox( height: 20 ),
+              SizedBox(height: 20),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -104,7 +111,22 @@ getTotal(widget.iduser);
                                 borderRadius: BorderRadius.circular(12)),
                           )),
                       onPressed: () {
-                        //Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice()));
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) => Invoice()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen(
+                                      iduser: widget.iduser,
+                                      account: [],
+                                    )));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen(
+                                      iduser: widget.iduser,
+                                      account: [],
+                                    )));
                       },
                     ),
                   ),

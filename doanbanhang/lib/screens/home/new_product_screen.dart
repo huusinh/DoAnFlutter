@@ -9,7 +9,7 @@ import 'itemcard.dart';
 
 class NewProduct extends StatelessWidget {
   const NewProduct({Key? key, required this.iduser}) : super(key: key);
-final int iduser;
+  final int iduser;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -32,18 +32,24 @@ final int iduser;
                     decoration: BoxDecoration(
                         color: Colors.pink[50],
                         borderRadius: BorderRadius.circular(16)),
-                        child: Column(
-                          children: [
-                            Hero(
+                    child: Column(
+                      children: [
+                        Hero(
                           tag: snapshot.data![i].id.toString(),
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailScreen(product:snapshot.data![i], iduser: iduser,)));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              product: snapshot.data![i],
+                                              iduser: iduser,
+                                            )));
                               },
                               child: Image.network(
-                                "http://10.0.2.2/images/" +
+                                "http://10.0.2.2:8000/images/" +
                                     snapshot.data![i].image.toString(),
                                 width: 110,
                                 height: 110,
@@ -52,22 +58,22 @@ final int iduser;
                             ),
                           ),
                         ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              snapshot.data![i].tittle.toString(),
-                              style: TextStyle(color: Colors.black),
-                            ),
-                             SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              snapshot.data![i].price.toString(),
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                        SizedBox(
+                          height: 5,
                         ),
+                        Text(
+                          snapshot.data![i].tittle.toString(),
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          snapshot.data![i].price.toString(),
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
               ],
             );

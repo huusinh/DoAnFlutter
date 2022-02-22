@@ -10,7 +10,7 @@ import 'search_widget.dart';
 
 class SearchProduct extends StatefulWidget {
   const SearchProduct({Key? key, required this.iduser}) : super(key: key);
-final int iduser;
+  final int iduser;
   @override
   _SearchProduct createState() => _SearchProduct();
 }
@@ -92,14 +92,20 @@ class _SearchProduct extends State<SearchProduct> {
 
   Widget buildProduct(Product product) => ListTile(
         leading: Image.network(
-          "http://10.0.2.2/images/"+product.image,
+          "http://10.0.2.2:8000/images/" + product.image,
           fit: BoxFit.cover,
           width: 50,
           height: 50,
         ),
         title: Text(product.tittle),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(product: product, iduser: widget.iduser,)));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailScreen(
+                        product: product,
+                        iduser: widget.iduser,
+                      )));
         },
       );
 }

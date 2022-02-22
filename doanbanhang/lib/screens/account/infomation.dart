@@ -4,8 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class Information extends StatefulWidget {
- const Information({Key? key,required this.iduser}) : super(key: key);
-final int iduser;
+  const Information({Key? key, required this.iduser}) : super(key: key);
+  final int iduser;
   @override
   _InformationState createState() => _InformationState();
 }
@@ -13,13 +13,15 @@ final int iduser;
 enum GioiTinh { Nam, Nu }
 
 class _InformationState extends State<Information> {
-  GioiTinh selectedRadio = Auth.user.gioiTinh == "nam" ? GioiTinh.Nam : GioiTinh.Nu;
+  GioiTinh selectedRadio =
+      Auth.user.gioiTinh == "nam" ? GioiTinh.Nam : GioiTinh.Nu;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Thông tin cá nhân'),
+        backgroundColor: Colors.orange,
         //backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         //elevation: 1,
         leading: IconButton(
@@ -29,8 +31,17 @@ class _InformationState extends State<Information> {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Profile(
+                          iduser: widget.iduser,
+                        )));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Profile(
+                          iduser: widget.iduser,
+                        )));
           },
         ),
       ),
@@ -56,7 +67,10 @@ class _InformationState extends State<Information> {
             const SizedBox(height: 25),
             const Text(
               'Giới tính',
-              style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
             ),
             Row(
               children: <Widget>[
@@ -155,14 +169,17 @@ class _InformationState extends State<Information> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
-                child: const Text(
-                  'Cập nhật thông tin',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                onPressed: () {},
+                child: Text("Cập nhật thông tin"),
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Colors.orange),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                    )),
+                onPressed: () {
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice()));
+                },
               ),
             ),
           ],

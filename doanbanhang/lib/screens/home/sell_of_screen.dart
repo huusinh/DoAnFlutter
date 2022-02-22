@@ -1,5 +1,3 @@
-
-
 import 'package:doanbanhang/api/api_apple.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/models/products_test.dart';
@@ -12,7 +10,7 @@ import 'itemcard.dart';
 
 class SellOf extends StatefulWidget {
   const SellOf({Key? key, required this.iduser}) : super(key: key);
-final int iduser;
+  final int iduser;
   @override
   _SellOf createState() => _SellOf();
 }
@@ -48,11 +46,17 @@ class _SellOf extends State<SellOf> {
                             color: Colors.transparent,
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailScreen(product:snapshot.data![i], iduser: widget.iduser,)));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              product: snapshot.data![i],
+                                              iduser: widget.iduser,
+                                            )));
                               },
                               child: Image.network(
-                                "http://10.0.2.2/images/" +
-                                    snapshot.data![i].image.toString(),
+                                "http://10.0.2.2:8000/images/" +
+                                    snapshot.data![i].image,
                                 width: 110,
                                 height: 110,
                                 fit: BoxFit.contain,

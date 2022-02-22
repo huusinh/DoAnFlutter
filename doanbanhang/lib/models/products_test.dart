@@ -19,9 +19,9 @@ class Product {
       required this.price,
       required this.size,
       required this.loaiSanPhamId,
-       this.createdAt,
-       this.updatedAt,
-       this.deletedAt,
+      this.createdAt,
+      this.updatedAt,
+      this.deletedAt,
       required this.color});
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(

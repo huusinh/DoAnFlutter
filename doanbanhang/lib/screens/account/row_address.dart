@@ -3,8 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class RowAddress extends StatefulWidget {
-  const RowAddress({Key? key,required this.iduser}) : super(key: key);
-final int iduser;
+  const RowAddress({Key? key, required this.iduser}) : super(key: key);
+  final int iduser;
   @override
   _RowAddressState createState() => _RowAddressState();
 }
@@ -17,6 +17,7 @@ class _RowAddressState extends State<RowAddress> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Địa chỉ nhận hàng'),
+        backgroundColor: Colors.orange,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
@@ -24,7 +25,11 @@ class _RowAddressState extends State<RowAddress> {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Profile(
+                          iduser: widget.iduser,
+                        )));
           },
         ),
       ),
@@ -121,14 +126,18 @@ class _RowAddressState extends State<RowAddress> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Tiếp tục',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
+                child: Text("Cập nhật"),
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Colors.orange),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                    )),
+                onPressed: () {
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice()));
+                },
+              ),
             ),
           ],
         ),

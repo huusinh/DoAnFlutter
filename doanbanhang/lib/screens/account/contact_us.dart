@@ -15,6 +15,7 @@ class _ContactUsState extends State<ContactUs> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Liên hệ với chúng tôi'),
+        backgroundColor: Colors.orange,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.white,

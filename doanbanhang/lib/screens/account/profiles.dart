@@ -1,4 +1,3 @@
-import 'package:doanbanhang/screens/fav_screen/fav_screen.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/orders/my_order.dart';
 import 'package:flutter/material.dart';
@@ -9,20 +8,29 @@ import 'row_address.dart';
 import 'contact_us.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key,required this.iduser }) : super(key: key);
-final int iduser;
+  const Profile({Key? key, required this.iduser}) : super(key: key);
+  final int iduser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: const Icon(FontAwesomeIcons.arrowLeft,
-            size: 20,),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomeScreen(account: [], iduser: iduser,)));
-            },
+          icon: const Icon(
+            FontAwesomeIcons.arrowLeft,
+            size: 20,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(
+                          account: [],
+                          iduser: iduser,
+                        )));
+          },
         ),
         title: const Text('Tài khoản'),
+        backgroundColor: Colors.orange,
       ),
       body: ListView(
         children: [
@@ -35,9 +43,15 @@ final int iduser;
                   width: 115,
                   height: 115,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 4.0, color: Theme.of(context).scaffoldBackgroundColor),
+                    border: Border.all(
+                        width: 4.0,
+                        color: Theme.of(context).scaffoldBackgroundColor),
                     boxShadow: [
-                      BoxShadow(spreadRadius: 2, blurRadius: 10, color: Colors.black.withOpacity(0.1), offset: const Offset(0, 10)),
+                      BoxShadow(
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                          color: Colors.black.withOpacity(0.1),
+                          offset: const Offset(0, 10)),
                     ],
                     shape: BoxShape.circle,
                     image: const DecorationImage(
@@ -72,7 +86,8 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -94,7 +109,10 @@ final int iduser;
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  Information(iduser: iduser,)),
+                  MaterialPageRoute(
+                      builder: (context) => Information(
+                            iduser: iduser,
+                          )),
                 );
               },
             ),
@@ -104,7 +122,8 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -127,10 +146,16 @@ final int iduser;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>  RowAddress(iduser: iduser,)));
+                        builder: (context) => RowAddress(
+                              iduser: iduser,
+                            )));
 
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  RowAddress(iduser: iduser,)));
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RowAddress(
+                              iduser: iduser,
+                            )));
               },
             ),
           ),
@@ -139,36 +164,8 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-              color: const Color(0xFFF5F6F9),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.favorite_border,
-                    size: 50,
-                  ),
-                  SizedBox(width: 30),
-                  Expanded(
-                      child: Text(
-                    'Danh sách yêu thích',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  )),
-                  Icon(Icons.arrow_forward_ios)
-                ],
-              ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => FavScreen()));
-              },
-            ),
-          ),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            // ignore: deprecated_member_use
-            child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -188,10 +185,18 @@ final int iduser;
                 ],
               ),
               onPressed: () {
-
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>MyOrder(iduser: iduser,)));
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder(iduser: iduser,)));
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MyOrder(
+                              iduser: iduser,
+                            )));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MyOrder(
+                              iduser: iduser,
+                            )));
               },
             ),
           ),
@@ -200,12 +205,22 @@ final int iduser;
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUs(iduser: iduser,)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ContactUs(
+                              iduser: iduser,
+                            )));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ContactUs(
+                              iduser: iduser,
+                            )));
               },
               child: Row(
                 children: const [

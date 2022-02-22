@@ -54,7 +54,7 @@ class ProductTitleWithImage extends StatelessWidget {
                 child: Hero(
                   tag: "${1}",
                   child: Image.network(
-                    "http://10.0.2.2/images/" + image,
+                    "http://10.0.2.2:8000/images/" + image,
                     fit: BoxFit.fill,
                   ),
                 ),
