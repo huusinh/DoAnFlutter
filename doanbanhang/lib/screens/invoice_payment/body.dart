@@ -1,5 +1,6 @@
 import 'package:doanbanhang/api/api_account.dart';
 import 'package:doanbanhang/api/api_getcart.dart';
+import 'package:doanbanhang/api/api_updatesoluong.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/models/account.dart';
 import 'package:doanbanhang/models/products_test.dart';
@@ -48,7 +49,7 @@ class _BodyState extends State<Body> {
           ),
           SizedBox(
             width: 600,
-            height: 200,
+            height: 250,
             child: AspectRatio(
               aspectRatio: 0.88,
               child: Container(
@@ -80,7 +81,7 @@ class _BodyState extends State<Body> {
                         height: kDefaultPaddin,
                       ),
                       Text(
-                        info,
+                        info.toString(),
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

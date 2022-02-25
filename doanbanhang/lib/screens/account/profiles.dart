@@ -134,7 +134,7 @@ class Profile extends StatelessWidget {
                   SizedBox(width: 30),
                   Expanded(
                       child: Text(
-                    'Địa chỉ nhân hàng',
+                    'Địa chỉ giao hàng',
                     style: TextStyle(
                       fontSize: 20,
                     ),
