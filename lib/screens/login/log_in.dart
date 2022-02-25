@@ -8,16 +8,15 @@ import 'forgotpassword.dart';
 import 'package:doanbanhang/models/account.dart';
 
 class Login extends StatefulWidget {
-  final int iduser;
-  const Login({Key? key, required this.iduser}) : super(key: key);
+  const Login({Key? key}) : super(key: key);
   @override
   Logincreen createState() => Logincreen();
 }
 
 class Logincreen extends State<Login> {
   bool isHiddenPassword = true;
-  TextEditingController taikhoan = TextEditingController(text: "linhquan@gmail.com");
-  TextEditingController matkhau = TextEditingController(text: "123456");
+  TextEditingController taikhoan = TextEditingController(text: "quanmatcac11@gmail.com");
+  TextEditingController matkhau = TextEditingController(text: "quanmatcac");
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -106,7 +105,7 @@ class Logincreen extends State<Login> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ForgotPass(
-                                      iduser: widget.iduser,
+                                      iduser: Auth.user.id!,
                                     )),
                           );
                         },
@@ -116,17 +115,24 @@ class Logincreen extends State<Login> {
                         padding: const EdgeInsets.all(15),
                         child: ElevatedButton(
                           onPressed: () async {
-                            final kq = await apiLogin(taikhoan.text, matkhau.text);
-                            if (kq.email.isNotEmpty) {
-                              Auth.user = kq;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeScreen(
-                                            iduser: widget.iduser,
-                                            account: [],
-                                          )));
-                            }
+                            //final kq = await apiLogin(taikhoan.text, matkhau.text);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen(
+                                          iduser: Auth.user.id!,
+                                          account: [],
+                                        )));
+                            // if (kq.email.isNotEmpty) {
+                            //   Auth.user = kq;
+                            //   Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (context) => HomeScreen(
+                            //                 iduser: widget.iduser,
+                            //                 account: [],
+                            //               )));
+                            // }
                           },
                           child: const Text('Đăng Nhập'),
                           style: ButtonStyle(
@@ -165,7 +171,7 @@ class Logincreen extends State<Login> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Register(
-                                      iduser: widget.iduser,
+                                      iduser: Auth.user.id!,
                                     )),
                           );
                         },

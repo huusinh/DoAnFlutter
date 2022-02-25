@@ -7,15 +7,10 @@ import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 
 class Information extends StatefulWidget {
-<<<<<<< HEAD
-  const Information({Key? key, required this.iduser}) : super(key: key);
-  final int iduser;
-=======
   final int iduser;
   // ignore: use_key_in_widget_constructors
   Information({Key? key, required this.iduser}) : super(key:key);
 
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
   @override
   _InformationState createState() => _InformationState();
 }
@@ -23,12 +18,7 @@ class Information extends StatefulWidget {
 enum GioiTinh { Nam, Nu }
 
 class _InformationState extends State<Information> {
-<<<<<<< HEAD
-  GioiTinh selectedRadio =
-      Auth.user.gioiTinh == "nam" ? GioiTinh.Nam : GioiTinh.Nu;
-=======
   GioiTinh selectedRadio = Auth.user.gioiTinh == 1 ? GioiTinh.Nam : GioiTinh.Nu;
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
 
   TextEditingController ten = TextEditingController(text: Auth.user.name.toString());
   TextEditingController taikhoan = TextEditingController(text: Auth.user.email.toString());
@@ -49,22 +39,7 @@ class _InformationState extends State<Information> {
             color: Colors.white,
           ),
           onPressed: () {
-<<<<<<< HEAD
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Profile(
-                          iduser: widget.iduser,
-                        )));
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Profile(
-                          iduser: widget.iduser,
-                        )));
-=======
             Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
           },
         ),
       ),
@@ -197,18 +172,6 @@ class _InformationState extends State<Information> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
-<<<<<<< HEAD
-                child: Text("Cập nhật thông tin"),
-                style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                    backgroundColor: MaterialStateProperty.all(Colors.orange),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                    )),
-                onPressed: () {
-                  //Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice()));
-=======
                 child: const Text(
                   'Cập nhật thông tin',
                   style: TextStyle(
@@ -227,7 +190,6 @@ class _InformationState extends State<Information> {
 
                   Auth.user = await apiCapnhat(user);
                   Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(iduser: widget.iduser, account: [],)));
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                 },
               ),
             ),

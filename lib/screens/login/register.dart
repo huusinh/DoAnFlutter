@@ -24,12 +24,7 @@ class Register extends StatelessWidget {
                 size: 20,
               ),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Login(
-                              iduser: iduser,
-                            )));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
               },
             ),
             title: const Text('Đăng kí tài khoản')),
@@ -44,7 +39,7 @@ class Register extends StatelessWidget {
                   height: 200,
                 ),
               ),
-              Text(
+              const Text(
                 'Đăng kí tài khoản mới ?',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -102,7 +97,7 @@ class Register extends StatelessWidget {
                       border: OutlineInputBorder(),
                       hintText: 'Password',
                       labelText: 'Password ',
-                      prefixIcon: const Icon(Icons.security),
+                      prefixIcon: Icon(Icons.security),
                     ),
                   ),
                 ),
@@ -114,12 +109,7 @@ class Register extends StatelessWidget {
                     final kq = await apiDangki(ten.text, taikhoan.text, matkhau.text);
                     if (kq.email.isNotEmpty) {
                       Auth.user = kq;
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Login(
-                                    iduser: iduser,
-                                  )));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
                     }
                   },
                   child: const Text('Đăng kí'),
@@ -128,7 +118,7 @@ class Register extends StatelessWidget {
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
-                        side: BorderSide(color: Colors.orange),
+                        side: const BorderSide(color: Colors.orange),
                       ),
                     ),
                   ),

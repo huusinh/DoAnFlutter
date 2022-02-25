@@ -26,16 +26,8 @@ class _BodyState extends State<Body> {
   void getInfo(int id) async {
     User user = await infoAccount(id);
     setState(() {
-<<<<<<< HEAD
-      info = 'Số điện thoại: ' +
-          user.sodienthoai.toString() +
-          '\n' +
-          'Địa chỉ: ' +
-          user.diachi.toString();
-=======
       info='Số điện thoại: '+user.sDT.toString() + '\n' +'Địa chỉ: '+user.diaChi.toString(); 
  
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
     });
   }
 

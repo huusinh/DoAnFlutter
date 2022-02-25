@@ -9,14 +9,9 @@ import 'row_address.dart';
 import 'contact_us.dart';
 
 class Profile extends StatelessWidget {
-<<<<<<< HEAD
-  const Profile({Key? key, required this.iduser}) : super(key: key);
-  final int iduser;
-=======
   final int iduser;
   const Profile({Key? key, required this.iduser}) : super(key: key);
 
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,13 +26,8 @@ class Profile extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => HomeScreen(
-<<<<<<< HEAD
-                          account: [],
-                          iduser: iduser,
-=======
                           iduser: iduser,
                           account: [],
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                         )));
           },
         ),
@@ -55,15 +45,9 @@ class Profile extends StatelessWidget {
                   width: 115,
                   height: 115,
                   decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 4.0,
-                        color: Theme.of(context).scaffoldBackgroundColor),
+                    border: Border.all(width: 4.0, color: Theme.of(context).scaffoldBackgroundColor),
                     boxShadow: [
-                      BoxShadow(
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                          color: Colors.black.withOpacity(0.1),
-                          offset: const Offset(0, 10)),
+                      BoxShadow(spreadRadius: 2, blurRadius: 10, color: Colors.black.withOpacity(0.1), offset: const Offset(0, 10)),
                     ],
                     shape: BoxShape.circle,
                     image: const DecorationImage(
@@ -98,8 +82,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -134,8 +117,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -161,16 +143,6 @@ class Profile extends StatelessWidget {
                         builder: (context) => RowAddress(
                               iduser: iduser,
                             )));
-<<<<<<< HEAD
-
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => RowAddress(
-                              iduser: iduser,
-                            )));
-=======
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               },
             ),
           ),
@@ -179,8 +151,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               child: Row(
                 children: const [
@@ -206,15 +177,6 @@ class Profile extends StatelessWidget {
                         builder: (context) => MyOrder(
                               iduser: iduser,
                             )));
-<<<<<<< HEAD
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MyOrder(
-                              iduser: iduser,
-                            )));
-=======
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               },
             ),
           ),
@@ -223,8 +185,7 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             // ignore: deprecated_member_use
             child: FlatButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               color: const Color(0xFFF5F6F9),
               onPressed: () {
                 Navigator.push(
@@ -233,15 +194,6 @@ class Profile extends StatelessWidget {
                         builder: (context) => ContactUs(
                               iduser: iduser,
                             )));
-<<<<<<< HEAD
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ContactUs(
-                              iduser: iduser,
-                            )));
-=======
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               },
               child: Row(
                 children: const [
@@ -268,10 +220,7 @@ class Profile extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => Login(
-                            iduser: iduser,
-                          )),
+                  MaterialPageRoute(builder: (context) => const Login()),
                 );
               },
               child: const Text('Logout'),

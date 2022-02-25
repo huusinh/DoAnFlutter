@@ -23,12 +23,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeScreen extends StatefulWidget {
   final List<User> account;
   final int iduser;
-<<<<<<< HEAD
-  const HomeScreen({Key? key, required this.account, required this.iduser})
-      : super(key: key);
-=======
   const HomeScreen({Key? key, required this.account, required this.iduser}) : super(key: key);
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -39,10 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final items = <Widget>[
-      Icon(Icons.home, size: 30),
-      Icon(Icons.favorite, size: 30),
-      Icon(Icons.person, size: 30),
+    final List<Widget> items = [
+      const Icon(Icons.home, size: 30),
+      const Icon(Icons.favorite, size: 30),
+      const Icon(Icons.person, size: 30),
     ];
     return Scaffold(
       extendBody: true,
@@ -56,12 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             size: 20,
           ),
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Login(
-                          iduser: widget.iduser,
-                        )));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
           },
         ),
         actions: <Widget>[
@@ -77,10 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context) => SearchProduct(
                             iduser: widget.iduser,
                           )));
-<<<<<<< HEAD
-=======
             },
-            padding: EdgeInsets.only(right: 160),
+            //padding: const EdgeInsets.only(right: 160),
           ),
           IconButton(
             icon: const Icon(
@@ -95,32 +83,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context) => CartScreen(
                             iduser: widget.iduser,
                           )));
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             },
-            padding: EdgeInsets.only(right: 200),
+            //padding: const EdgeInsets.only(right: 200),
           ),
           IconButton(
             icon: const Icon(
-<<<<<<< HEAD
-              FontAwesomeIcons.shoppingCart,
-              size: 25,
-            ),
-            color: kTextColor,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => CartScreen(
-                            iduser: widget.iduser,
-                          )));
-            },
-=======
               FontAwesomeIcons.bell,
               size: 25,
             ),
             color: kTextColor,
             onPressed: () {},
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
           ),
           // IconButton(
           //   icon: const Icon(
@@ -159,114 +131,72 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover,
                 width: 1300,
               ),
-<<<<<<< HEAD
-              Image.asset('assets/images/banner1.jpg',
-                  fit: BoxFit.cover, width: 1300),
-              Image.asset('assets/images/banner2.jpg',
-                  fit: BoxFit.cover, width: 1300),
-=======
               Image.asset('assets/images/banner1.jpg', fit: BoxFit.cover, width: 1300),
               Image.asset('assets/images/banner2.jpg', fit: BoxFit.cover, width: 1300),
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             ],
           ),
-          SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           Categories(
             iduser: widget.iduser,
           ),
-          SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           Row(
-<<<<<<< HEAD
-            children: [
-              SizedBox(
-                width: 5,
-              ),
-=======
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // SizedBox(
               //   width: 5,
               // ),
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
-              Text(
+              const Text(
                 "Sell off",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
-<<<<<<< HEAD
-=======
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Samsung(iduser: widget.iduser)));
                 },
-                child: Text(
+                child: const Text(
                   "See all",
                   style: TextStyle(color: Colors.black54),
                 ),
               )
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             ],
           ),
-          SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           SellOf(
             iduser: widget.iduser,
           ),
-          SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           Row(
-<<<<<<< HEAD
-            children: [
-              SizedBox(
-                width: 5,
-              ),
-=======
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // SizedBox(
               //   width: 5,
               // ),
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
-              Text(
+              const Text(
                 "New Product",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
-<<<<<<< HEAD
-=======
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Apple(iduser: widget.iduser)));
                 },
-                child: Text(
+                child: const Text(
                   "See all",
                   style: TextStyle(color: Colors.black54),
                 ),
               )
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             ],
           ),
-          SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           NewProduct(
             iduser: widget.iduser,
           ),
         ],
       ),
       bottomNavigationBar: Theme(
-<<<<<<< HEAD
-        data: Theme.of(context)
-            .copyWith(iconTheme: IconThemeData(color: Colors.white)),
-=======
-        data: Theme.of(context).copyWith(iconTheme: IconThemeData(color: Colors.white)),
->>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
+        data: Theme.of(context).copyWith(iconTheme: const IconThemeData(color: Colors.white)),
         child: CurvedNavigationBar(
             items: items,
             color: Colors.blue,
