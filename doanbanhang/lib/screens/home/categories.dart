@@ -51,6 +51,7 @@ class _CategoriesState extends State<Categories> {
           ),
           OutlinedButton(
             onPressed: () {
+<<<<<<< HEAD
               Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -62,6 +63,13 @@ class _CategoriesState extends State<Categories> {
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(12))),
             ),
+=======
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> Samsung(iduser: widget.iduser,)));
+            },
+            style: OutlinedButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)))),
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             child: Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: kDefaultPaddin / 4, vertical: kDefaultPaddin / 2),

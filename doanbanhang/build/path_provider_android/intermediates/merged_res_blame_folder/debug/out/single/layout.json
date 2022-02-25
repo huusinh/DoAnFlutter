@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "merged": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\custom_dialog.xml",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\custom_dialog.xml"
     },
@@ -22,5 +23,29 @@
     {
         "merged": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\notification_template_part_chronometer.xml"
+=======
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\custom_dialog.xml",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\layout\\notification_template_icon_group.xml"
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
     }
 ]

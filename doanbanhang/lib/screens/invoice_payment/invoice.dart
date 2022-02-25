@@ -1,6 +1,10 @@
 import 'package:doanbanhang/api/api_total.dart';
 import 'package:doanbanhang/models/products_test.dart';
+<<<<<<< HEAD
 import 'package:doanbanhang/screens/home/homescreen.dart';
+=======
+import 'package:doanbanhang/screens/login/Auth.dart';
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -31,9 +35,13 @@ class _InvoiceState extends State<Invoice> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
+<<<<<<< HEAD
       body: Body(
         id: 1,
       ),
+=======
+      body: Body(id: Auth.user.id!,),
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(
           vertical: 15,

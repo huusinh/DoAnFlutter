@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "merged": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
     },
@@ -18,5 +19,25 @@
     {
         "merged": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notification_bg_low_normal.9.png",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+=======
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\drawable-mdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
     }
 ]

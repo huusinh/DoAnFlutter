@@ -1,4 +1,5 @@
 import 'package:doanbanhang/screens/home/homescreen.dart';
+import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:doanbanhang/screens/orders/my_order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -8,8 +9,14 @@ import 'row_address.dart';
 import 'contact_us.dart';
 
 class Profile extends StatelessWidget {
+<<<<<<< HEAD
   const Profile({Key? key, required this.iduser}) : super(key: key);
   final int iduser;
+=======
+  final int iduser;
+  const Profile({Key? key, required this.iduser}) : super(key: key);
+
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +31,13 @@ class Profile extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => HomeScreen(
+<<<<<<< HEAD
                           account: [],
                           iduser: iduser,
+=======
+                          iduser: iduser,
+                          account: [],
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                         )));
           },
         ),
@@ -149,6 +161,7 @@ class Profile extends StatelessWidget {
                         builder: (context) => RowAddress(
                               iduser: iduser,
                             )));
+<<<<<<< HEAD
 
                 Navigator.push(
                     context,
@@ -156,6 +169,8 @@ class Profile extends StatelessWidget {
                         builder: (context) => RowAddress(
                               iduser: iduser,
                             )));
+=======
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               },
             ),
           ),
@@ -191,12 +206,15 @@ class Profile extends StatelessWidget {
                         builder: (context) => MyOrder(
                               iduser: iduser,
                             )));
+<<<<<<< HEAD
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => MyOrder(
                               iduser: iduser,
                             )));
+=======
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               },
             ),
           ),
@@ -215,12 +233,15 @@ class Profile extends StatelessWidget {
                         builder: (context) => ContactUs(
                               iduser: iduser,
                             )));
+<<<<<<< HEAD
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => ContactUs(
                               iduser: iduser,
                             )));
+=======
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               },
               child: Row(
                 children: const [
@@ -238,6 +259,30 @@ class Profile extends StatelessWidget {
                   )),
                   Icon(Icons.arrow_forward_ios)
                 ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Login(
+                            iduser: iduser,
+                          )),
+                );
+              },
+              child: const Text('Logout'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                    side: const BorderSide(color: Colors.orange),
+                  ),
+                ),
               ),
             ),
           ),

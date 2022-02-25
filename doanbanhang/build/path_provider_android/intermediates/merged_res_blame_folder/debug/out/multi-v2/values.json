@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values\\values.xml",
+=======
+            "outputFile": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values\\values.xml",
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,83,84,88,89,90,91,98,141,173,210",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -17,10 +24,17 @@
             ]
         },
         {
+<<<<<<< HEAD
             "outputFile": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values\\values.xml",
+=======
+            "outputFile": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values\\values.xml",
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,83,84,88,89,90,91,98,141,173,210",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

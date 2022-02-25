@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\values-pt-rPT\\values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+=======
+            "outputFile": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\merged_res\\debug\\values-pt-rPT\\values-pt-rPT.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +23,17 @@
             ]
         },
         {
+<<<<<<< HEAD
             "outputFile": "E:\\Lap trinh di dong\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rPT\\values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+=======
+            "outputFile": "C:\\Users\\MTBH\\Desktop\\didongUp\\DoAnFlutter\\doanbanhang\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rPT\\values-pt-rPT.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\MTBH\\.gradle\\caches\\transforms-3\\09f93a25f31879d2e2752afd72926959\\transformed\\core-1.1.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

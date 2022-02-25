@@ -14,6 +14,8 @@ import 'package:doanbanhang/screens/home/new_product_screen.dart';
 import 'package:doanbanhang/screens/home/sell_of_screen.dart';
 import 'package:doanbanhang/screens/login/log_in.dart';
 import 'package:doanbanhang/screens/productdetails/detail.dart';
+import 'package:doanbanhang/screens/products/apple.dart';
+import 'package:doanbanhang/screens/products/samsung.dart';
 import 'package:doanbanhang/screens/search_product/search.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,8 +23,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeScreen extends StatefulWidget {
   final List<User> account;
   final int iduser;
+<<<<<<< HEAD
   const HomeScreen({Key? key, required this.account, required this.iduser})
       : super(key: key);
+=======
+  const HomeScreen({Key? key, required this.account, required this.iduser}) : super(key: key);
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -71,8 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context) => SearchProduct(
                             iduser: widget.iduser,
                           )));
+<<<<<<< HEAD
+=======
             },
-            padding: EdgeInsets.only(right: 200),
+            padding: EdgeInsets.only(right: 160),
           ),
           IconButton(
             icon: const Icon(
@@ -87,7 +95,32 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context) => CartScreen(
                             iduser: widget.iduser,
                           )));
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             },
+            padding: EdgeInsets.only(right: 200),
+          ),
+          IconButton(
+            icon: const Icon(
+<<<<<<< HEAD
+              FontAwesomeIcons.shoppingCart,
+              size: 25,
+            ),
+            color: kTextColor,
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CartScreen(
+                            iduser: widget.iduser,
+                          )));
+            },
+=======
+              FontAwesomeIcons.bell,
+              size: 25,
+            ),
+            color: kTextColor,
+            onPressed: () {},
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
           ),
           // IconButton(
           //   icon: const Icon(
@@ -126,10 +159,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover,
                 width: 1300,
               ),
+<<<<<<< HEAD
               Image.asset('assets/images/banner1.jpg',
                   fit: BoxFit.cover, width: 1300),
               Image.asset('assets/images/banner2.jpg',
                   fit: BoxFit.cover, width: 1300),
+=======
+              Image.asset('assets/images/banner1.jpg', fit: BoxFit.cover, width: 1300),
+              Image.asset('assets/images/banner2.jpg', fit: BoxFit.cover, width: 1300),
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             ],
           ),
           SizedBox(
@@ -142,15 +180,35 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 30,
           ),
           Row(
+<<<<<<< HEAD
             children: [
               SizedBox(
                 width: 5,
               ),
+=======
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // SizedBox(
+              //   width: 5,
+              // ),
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               Text(
                 "Sell off",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
+<<<<<<< HEAD
+=======
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Samsung(iduser: widget.iduser)));
+                },
+                child: Text(
+                  "See all",
+                  style: TextStyle(color: Colors.black54),
+                ),
+              )
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             ],
           ),
           SizedBox(
@@ -163,15 +221,35 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 30,
           ),
           Row(
+<<<<<<< HEAD
             children: [
               SizedBox(
                 width: 5,
               ),
+=======
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // SizedBox(
+              //   width: 5,
+              // ),
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
               Text(
                 "New Product",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
+<<<<<<< HEAD
+=======
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Apple(iduser: widget.iduser)));
+                },
+                child: Text(
+                  "See all",
+                  style: TextStyle(color: Colors.black54),
+                ),
+              )
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
             ],
           ),
           SizedBox(
@@ -183,8 +261,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: Theme(
+<<<<<<< HEAD
         data: Theme.of(context)
             .copyWith(iconTheme: IconThemeData(color: Colors.white)),
+=======
+        data: Theme.of(context).copyWith(iconTheme: IconThemeData(color: Colors.white)),
+>>>>>>> 2ffcc65511d2d5efe22bf1d0eed58ea54bbf6bc8
         child: CurvedNavigationBar(
             items: items,
             color: Colors.blue,

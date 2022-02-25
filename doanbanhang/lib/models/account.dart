@@ -2,14 +2,14 @@ class User {
   int? id;
   late String name;
   late String email;
-  String? gioiTinh;
+  int? gioiTinh;
   String? ngaySinh;
-  String? diachi;
-  String? sodienthoai;
+  String? diaChi;
+  String? sDT;
   int? quyen;
   int? trangThai;
 
-  User({this.id, required this.name, required this.email, this.gioiTinh, this.ngaySinh, this.diachi, this.sodienthoai, this.quyen, this.trangThai});
+  User({this.id, required this.name, required this.email, this.gioiTinh, this.ngaySinh, this.diaChi, this.sDT, this.quyen, this.trangThai});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -17,8 +17,8 @@ class User {
     email = json['email'];
     gioiTinh = json['GioiTinh'];
     ngaySinh = json['NgaySinh'];
-    diachi = json['diachi'];
-    sodienthoai = json['sodienthoai'];
+    diaChi = json['DiaChi'];
+    sDT = json['SDT'].toString();
     quyen = json['Quyen'];
     trangThai = json['TrangThai'];
   }
@@ -30,8 +30,8 @@ class User {
     data['email'] = email;
     data['GioiTinh'] = gioiTinh;
     data['NgaySinh'] = ngaySinh;
-    data['diachi'] = diachi;
-    data['sodienthoai'] = sodienthoai;
+    data['DiaChi'] = diaChi;
+    data['SDT'] = sDT;
     data['Quyen'] = quyen;
     data['TrangThai'] = trangThai;
     return data;
@@ -41,10 +41,10 @@ class User {
     id = -1;
     name = "";
     email = "";
-    gioiTinh = "";
+    gioiTinh = 0;
     ngaySinh = "";
-    diachi = "";
-    sodienthoai = "";
+    diaChi = "";
+    sDT = "";
     quyen = -1;
     trangThai = -1;
   }
