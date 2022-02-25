@@ -152,7 +152,7 @@ class _InformationState extends State<Information> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: TextField(
                 controller: sdt,

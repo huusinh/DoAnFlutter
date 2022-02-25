@@ -52,8 +52,8 @@ class _SellOf extends State<SellOf> {
                                               iduser: widget.iduser,
                                             )));
                               },
-                              child: Image.network(
-                                "http://10.0.2.2:8000/images/" + snapshot.data![i].image,
+                              child: Image.asset(
+                                "assets/images/" + snapshot.data![i].image,
                                 width: 110,
                                 height: 110,
                                 fit: BoxFit.contain,

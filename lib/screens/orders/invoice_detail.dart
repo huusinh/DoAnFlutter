@@ -23,32 +23,33 @@ class _InvoiceState extends State<InvoiceDetail> {
     });
   }
 
+  @override
   void initState() {
+    super.initState();
     getTotal(widget.iduser);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context),
+      appBar: _buildAppBar(context),
       body: Body(
-        id: 1,
+        id: widget.iduser,
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 15,
           horizontal: 30,
         ),
         //height:174,
         decoration: BoxDecoration(
           color: Colors.pink[50],
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+          borderRadius: const BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, -15),
+              offset: const Offset(0, -15),
               blurRadius: 20,
-              color: Color(0xFFDADADA).withOpacity(0.15),
+              color: const Color(0xFFDADADA).withOpacity(0.15),
             ),
           ],
         ),
@@ -62,35 +63,32 @@ class _InvoiceState extends State<InvoiceDetail> {
                   Text.rich(
                     TextSpan(
                       text: "Total:\n",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 30,
                       ),
                       children: [
                         TextSpan(
                           text: total.toString(),
-                          style: TextStyle(fontSize: 25, color: Colors.black),
+                          style: const TextStyle(fontSize: 25, color: Colors.black),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
                     width: 190,
                     child: ElevatedButton(
-                      child: Text("Cancel"),
+                      child: const Text("Cancel"),
                       style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.red),
+                          foregroundColor: MaterialStateProperty.all(Colors.white),
+                          backgroundColor: MaterialStateProperty.all(Colors.red),
                           shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
+                            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           )),
                       onPressed: () {
                         // Navigator.push(context,
@@ -121,7 +119,7 @@ class _InvoiceState extends State<InvoiceDetail> {
     );
   }
 
-  AppBar buildAppBar(BuildContext context) {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.pink[50],
       foregroundColor: Colors.black,

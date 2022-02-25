@@ -69,7 +69,7 @@ class Profile extends StatelessWidget {
                             color: Theme.of(context).scaffoldBackgroundColor),
                       ),
                       child: IconButton(
-                        icon: Icon(Icons.camera_alt),
+                        icon: const Icon(Icons.camera_alt),
                         color: Colors.black,
                         onPressed: () {},
                       ),

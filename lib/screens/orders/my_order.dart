@@ -2,7 +2,7 @@ import 'package:doanbanhang/screens/account/infomation.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
 import 'package:doanbanhang/screens/account/row_address.dart';
 import 'package:doanbanhang/screens/invoice_payment/invoice.dart';
-import 'package:doanbanhang/screens/orders/first_page.dart';
+import 'package:doanbanhang/screens/orders/tab_donhang.dart';
 import 'package:doanbanhang/screens/orders/invoice_detail.dart';
 import 'package:doanbanhang/models/invoice.dart';
 import 'package:flutter/material.dart';
@@ -25,45 +25,41 @@ class _MyOderState extends State<MyOrder> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    controller.dispose();
-
     super.dispose();
+    controller.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('Đơn hàng của tôi'),
-            backgroundColor: Colors.orange,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              color: Colors.white,
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Profile(
-                              iduser: widget.iduser,
-                            )));
-              },
-            ),
-            centerTitle: true,
-            bottom: TabBar(controller: controller, tabs: [
-              Tab(text: 'Tất cả '),
-              Tab(text: 'Đơn mới đặt'),
-              Tab(text: 'Đơn đã xử lý'),
-            ]),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Đơn hàng của tôi'),
+          backgroundColor: Colors.orange,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            color: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Profile(
+                            iduser: widget.iduser,
+                          )));
+            },
           ),
-          body: TabBarView(
-            controller: controller,
-            children: [
-              Firstpage(TrangThai: 1),
-              Firstpage(TrangThai: 2),
-              Firstpage(TrangThai: 3),
-            ],
-          ),
+          centerTitle: true,
+          bottom: TabBar(controller: controller, tabs: const [
+            Tab(text: 'Tất cả '),
+            Tab(text: 'Đơn mới đặt'),
+            Tab(text: 'Đơn đã xử lý'),
+          ]),
+        ),
+        body: TabBarView(
+          controller: controller,
+          children: const [
+            TabDonHang(trangThai: 0),
+            TabDonHang(trangThai: 1),
+            TabDonHang(trangThai: 2),
+          ],
         ),
       );
 }

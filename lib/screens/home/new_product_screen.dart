@@ -29,9 +29,7 @@ class NewProduct extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(right: kDefaultPaddin),
                     padding: const EdgeInsets.all(kDefaultPaddin),
-                    decoration: BoxDecoration(
-                        color: Colors.pink[50],
-                        borderRadius: BorderRadius.circular(16)),
+                    decoration: BoxDecoration(color: Colors.pink[50], borderRadius: BorderRadius.circular(16)),
                     child: Column(
                       children: [
                         Hero(
@@ -48,9 +46,8 @@ class NewProduct extends StatelessWidget {
                                               iduser: iduser,
                                             )));
                               },
-                              child: Image.network(
-                                "http://10.0.2.2:8000/images/" +
-                                    snapshot.data![i].image.toString(),
+                              child: Image.asset(
+                                "assets/images/" + snapshot.data![i].image.toString(),
                                 width: 110,
                                 height: 110,
                                 fit: BoxFit.contain,
@@ -58,19 +55,15 @@ class NewProduct extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
+                        const SizedBox(height: 5),
                         Text(
                           snapshot.data![i].tittle.toString(),
-                          style: TextStyle(color: Colors.black),
+                          style: const TextStyle(color: Colors.black),
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
+                        const SizedBox(height: 5),
                         Text(
                           snapshot.data![i].price.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),

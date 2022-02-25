@@ -5,9 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductTitleWithImage extends StatelessWidget {
-  const ProductTitleWithImage(
-      {Key? key, required this.image, required this.product})
-      : super(key: key);
+  const ProductTitleWithImage({Key? key, required this.image, required this.product}) : super(key: key);
   final String image;
   final Product product;
   @override
@@ -25,10 +23,7 @@ class ProductTitleWithImage extends StatelessWidget {
           ),
           Text(
             product.tittle,
-            style: Theme.of(context)
-                .textTheme
-                .headline4!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             width: kDefaultPaddin,
@@ -41,8 +36,7 @@ class ProductTitleWithImage extends StatelessWidget {
                     const TextSpan(text: "Price\n"),
                     TextSpan(
                       text: "\$${product.price}",
-                      style: Theme.of(context).textTheme.headline4!.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -53,8 +47,8 @@ class ProductTitleWithImage extends StatelessWidget {
               Expanded(
                 child: Hero(
                   tag: "${1}",
-                  child: Image.network(
-                    "http://10.0.2.2:8000/images/" + image,
+                  child: Image.asset(
+                    "assets/images/" + image,
                     fit: BoxFit.fill,
                   ),
                 ),

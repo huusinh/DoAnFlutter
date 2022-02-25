@@ -122,11 +122,11 @@ class _RowAddressState extends State<RowAddress> {
                 ),
               ),
             ),
-            SizedBox(height: 45),
+            const SizedBox(height: 45),
             Padding(
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
-                child: Text("Cập nhật"),
+                child: const Text("Cập nhật"),
                 style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                     backgroundColor: MaterialStateProperty.all(Colors.orange),

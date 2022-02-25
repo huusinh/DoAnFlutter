@@ -31,21 +31,16 @@ class CartItemCard extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: 0.88,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Color(0xFFF5F6F9),
+                color: const Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: CachedNetworkImage(
-                imageUrl: "http://10.0.2.2:8000/images/" + image,
-                placeholder: (context, url) => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
+              child: Image.asset("assets/images/$image"),
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: kDefaultPaddin / 2,
         ),
         Column(
@@ -53,7 +48,7 @@ class CartItemCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                SizedBox(width: 180),
+                const SizedBox(width: 180),
                 IconButton(
                     onPressed: () async {
                       var flag = await fetchDelete(id);
@@ -69,36 +64,36 @@ class CartItemCard extends StatelessWidget {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: Text('Notification'),
-                                content: Text('Delete product failed'),
+                                title: const Text('Notification'),
+                                content: const Text('Delete product failed'),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text('OK'),
+                                    child: const Text('OK'),
                                   )
                                 ],
                               );
                             });
                       }
                     },
-                    icon: Icon(Icons.delete)),
+                    icon: const Icon(Icons.delete)),
               ],
             ),
             Text(
               tittle,
               softWrap: false,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
             const SizedBox(
               height: 10,
             ),
             Text.rich(
               TextSpan(
-                text: "\$${price}",
-                style: TextStyle(
+                text: "\$$price",
+                style: const TextStyle(
                   fontWeight: FontWeight.w600,
                   color: Colors.red,
                 ),

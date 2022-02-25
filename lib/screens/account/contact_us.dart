@@ -14,10 +14,10 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Liên hệ với chúng tôi'),
+        title: const Text('Liên hệ với chúng tôi'),
         backgroundColor: Colors.orange,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             Navigator.push(
