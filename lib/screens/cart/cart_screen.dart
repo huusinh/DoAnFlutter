@@ -10,7 +10,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context),
+      appBar: _buildAppBar(context),
       body: Body(
         iduser: iduser,
       ),
@@ -100,7 +100,7 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  AppBar buildAppBar(BuildContext context) {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.pink[50],
       foregroundColor: Colors.black,

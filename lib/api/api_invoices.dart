@@ -10,17 +10,18 @@ class Invoices extends ChangeNotifier {
   List<Invoice> invoices = [];
 
   static _setHeader() => {'Content-type': 'application/json; charset=utf-8', 'Accept': 'application/json'};
-  // static Future<bool> createInvoice(var data) async {
-  //   var url = host + "invoice/newInvoice";
-  //   http.Response response = await http.post(Uri.parse(url), headers: _setHeader(), body: jsonEncode(data));
-  //   if (response.statusCode == 200) {
-  //     print(response.statusCode);
-  //     return true;
-  //   } else {
-  //     print(response.statusCode);
-  //     return false;
-  //   }
-  // }
+  static Future<bool> createInvoice(String diaChi, String sdt, [String? ghiChu]) async {
+    var url = host + "invoice/newInvoice";
+    final response =
+        await http.post(Uri.parse(url), body: {"_idtaikhoan": "${Auth.user.id!}", "_diachi": diaChi, "_sodienthoai": sdt, "_ghichu": ghiChu});
+    if (response.statusCode == 200) {
+      print(response.statusCode);
+      return true;
+    } else {
+      print(response.statusCode);
+      return false;
+    }
+  }
 
   // static Future<String> getInvoiceId(var data) async {
   //   String invoiceId;
@@ -50,7 +51,7 @@ class Invoices extends ChangeNotifier {
 
   Future<List<Invoice>> getInvoiceListByAccountId(int trangThai) async {
     var url = host + "invoice/getListInvoiceByAccountId";
-    final response = await http.post(Uri.parse(url), body: {"_idtaikhoan": "1", "_TrangThai": "$trangThai"});
+    final response = await http.post(Uri.parse(url), body: {"_idtaikhoan": "${Auth.user.id!}", "_TrangThai": "$trangThai"});
     if (response.statusCode == 200) {
       List jsonRaw = json.decode(response.body);
       invoices = jsonRaw.map((e) => Invoice.fromJson(e)).toList();

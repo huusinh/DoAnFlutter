@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:doanbanhang/api/api_updatesoluong.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:flutter/material.dart';

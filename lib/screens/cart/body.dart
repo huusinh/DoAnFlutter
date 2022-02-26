@@ -1,9 +1,5 @@
-import 'package:doanbanhang/api/api_apple.dart';
 import 'package:doanbanhang/api/api_getcart.dart';
-import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/models/cart.dart';
-import 'package:doanbanhang/models/products_test.dart';
-import 'package:doanbanhang/screens/home/itemcard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,7 +13,7 @@ class Body extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: FutureBuilder<List<Cart>>(
-        future: fetchGetCart(iduser),
+        future: fetchGetCart(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(

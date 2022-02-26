@@ -1,11 +1,10 @@
+import 'package:doanbanhang/api/api_invoices.dart';
 import 'package:doanbanhang/api/api_total.dart';
-import 'package:doanbanhang/models/products_test.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../constants.dart';
+import 'package:provider/provider.dart';
+import '../orders/my_order.dart';
 import 'body.dart';
 
 class Invoice extends StatefulWidget {
@@ -24,30 +23,31 @@ class _InvoiceState extends State<Invoice> {
     });
   }
 
+  @override
   void initState() {
+    super.initState();
     getTotal(widget.iduser);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context),
-      body: Body(id: Auth.user.id!,),
+      appBar: _buildAppBar(context),
+      body: const Body(),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 15,
           horizontal: 30,
         ),
         //height:174,
         decoration: BoxDecoration(
           color: Colors.pink[50],
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+          borderRadius: const BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, -15),
+              offset: const Offset(0, -15),
               blurRadius: 20,
-              color: Color(0xFFDADADA).withOpacity(0.15),
+              color: const Color(0xFFDADADA).withOpacity(0.15),
             ),
           ],
         ),
@@ -61,53 +61,52 @@ class _InvoiceState extends State<Invoice> {
                   Text.rich(
                     TextSpan(
                       text: "Total:\n",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 30,
                       ),
                       children: [
                         TextSpan(
                           text: total.toString(),
-                          style: TextStyle(fontSize: 25, color: Colors.black),
+                          style: const TextStyle(fontSize: 25, color: Colors.black),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
                     width: 190,
                     child: ElevatedButton(
-                      child: Text("Check out"),
+                      child: const Text("Check out"),
                       style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.orange),
+                          foregroundColor: MaterialStateProperty.all(Colors.white),
+                          backgroundColor: MaterialStateProperty.all(Colors.orange),
                           shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
+                            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           )),
-                      onPressed: () {
-                        //Navigator.push(context, MaterialPageRoute(builder: (context) => Invoice()));
+                      onPressed: () async {
+                        final result = await Invoices.createInvoice("diaChi", "097123123123", "Ghi chu' ne`");
+                        if (result) {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder(iduser: Auth.user.id!)));
+                        } else {
+                          thongBao(context, "That bai");
+                        }
                       },
                     ),
                   ),
                   SizedBox(
                     width: 190,
                     child: ElevatedButton(
-                      child: Text("Cancel"),
+                      child: const Text("Cancel"),
                       style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.red),
+                          foregroundColor: MaterialStateProperty.all(Colors.white),
+                          backgroundColor: MaterialStateProperty.all(Colors.red),
                           shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
+                            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           )),
                       onPressed: () {
                         // Navigator.push(context,
@@ -131,7 +130,7 @@ class _InvoiceState extends State<Invoice> {
     );
   }
 
-  AppBar buildAppBar(BuildContext context) {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.pink[50],
       foregroundColor: Colors.black,
@@ -148,4 +147,23 @@ class _InvoiceState extends State<Invoice> {
       ),
     );
   }
+}
+
+void thongBao(BuildContext context, String noiDungThongBao) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Notification'),
+          content: Text(noiDungThongBao),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            )
+          ],
+        );
+      });
 }
