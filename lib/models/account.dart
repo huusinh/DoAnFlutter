@@ -1,3 +1,5 @@
+import 'diachi.dart';
+
 class User {
   int? id;
   late String name;
@@ -8,8 +10,19 @@ class User {
   String? sDT;
   int? quyen;
   int? trangThai;
+  DiaChi? diaChii;
 
-  User({this.id, required this.name, required this.email, this.gioiTinh, this.ngaySinh, this.diaChi, this.sDT, this.quyen, this.trangThai});
+  User(
+      {this.id,
+      required this.name,
+      required this.email,
+      this.gioiTinh,
+      this.ngaySinh,
+      this.diaChi,
+      this.sDT,
+      this.quyen,
+      this.trangThai,
+      this.diaChii});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -17,21 +30,22 @@ class User {
     email = json['email'];
     gioiTinh = json['GioiTinh'];
     ngaySinh = json['NgaySinh'];
-    diaChi = json['DiaChi'];
-    sDT = json['SDT'].toString();
+    diaChi = json['diachi'];
+    sDT = json['sodienthoai'].toString();
     quyen = json['Quyen'];
     trangThai = json['TrangThai'];
+    diaChii = json['dia_chi'] != null ? DiaChi.fromJson(json['dia_chi']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
     data['email'] = email;
     data['GioiTinh'] = gioiTinh;
     data['NgaySinh'] = ngaySinh;
-    data['DiaChi'] = diaChi;
-    data['SDT'] = sDT;
+    data['diachi'] = diaChi;
+    data['sodienthoai'] = sDT;
     data['Quyen'] = quyen;
     data['TrangThai'] = trangThai;
     return data;

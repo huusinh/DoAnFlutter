@@ -42,7 +42,7 @@ class TabDonHang extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => InvoiceDetail(
-                                  dsChiTietHoaDon: snapshot.data![index].chiTietHoaDon!,
+                                  hoaDon: snapshot.data![index],
                                 )),
                       );
                     },
@@ -58,7 +58,7 @@ class TabDonHang extends StatelessWidget {
                             style: const TextStyle(color: Colors.black),
                           ),
                           trailing: Text(
-                            "${snapshot.data![index].trangThai}",
+                            (snapshot.data![index].trangThai) == 1 ? "Mới đặt" : "Đang xử lý",
                             style: const TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.bold,

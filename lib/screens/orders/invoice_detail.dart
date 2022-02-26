@@ -6,17 +6,41 @@ import 'package:flutter/material.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../api/api_account.dart';
+import '../../models/account.dart';
 import '../../models/invoice.dart';
 import '../invoice_payment/invoice_itemcard.dart';
 
 class InvoiceDetail extends StatefulWidget {
-  final List<ChiTietHoaDon> dsChiTietHoaDon;
-  const InvoiceDetail({Key? key, required this.dsChiTietHoaDon}) : super(key: key);
+  final Invoice hoaDon;
+  const InvoiceDetail({Key? key, required this.hoaDon}) : super(key: key);
   @override
   _InvoiceState createState() => _InvoiceState();
 }
 
 class _InvoiceState extends State<InvoiceDetail> {
+  String info = "";
+
+  void getInfo() async {
+    User user = await infoAccount();
+    setState(() {
+      info = '''
+        Số điện thoại: ${user.sDT}\n
+       Địa chỉ: ${user.diaChii!.diachichitiet}, ${user.diaChii!.phuongxa}, \n
+       ${user.diaChii!.quanhuyen}, \n
+       ${user.diaChii!.tinhthanhpho}, \n
+       Tên Người Nhận: ${user.diaChii!.tennguoinhan}
+       ''';
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getInfo();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +53,7 @@ class _InvoiceState extends State<InvoiceDetail> {
               height: kDefaultPaddin,
             ),
             SizedBox(
-              width: 600,
-              height: 250,
+              width: MediaQuery.of(context).size.width,
               child: AspectRatio(
                 aspectRatio: 0.88,
                 child: Container(
@@ -50,18 +73,18 @@ class _InvoiceState extends State<InvoiceDetail> {
                     padding: const EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           "Thông tin giao hàng:",
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: kDefaultPaddin),
+                        const SizedBox(height: kDefaultPaddin),
                         Text(
-                          "info.toString()",
-                          style: TextStyle(
+                          info,
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -77,7 +100,7 @@ class _InvoiceState extends State<InvoiceDetail> {
             ),
             ListView.separated(
               shrinkWrap: true,
-              itemCount: widget.dsChiTietHoaDon.length,
+              itemCount: widget.hoaDon.chiTietHoaDon!.length,
               separatorBuilder: (context, index) => const SizedBox(
                 height: 10, //khoang cach giua cac'layout
               ),
@@ -86,12 +109,12 @@ class _InvoiceState extends State<InvoiceDetail> {
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: InvoiceItemCard(
-                  image: widget.dsChiTietHoaDon[index].sanPham!.image!,
-                  tittle: widget.dsChiTietHoaDon[index].sanPham!.tittle!,
-                  price: widget.dsChiTietHoaDon[index].dongia!,
-                  id: widget.dsChiTietHoaDon[index].id!,
-                  idsp: widget.dsChiTietHoaDon[index].idsanpham!,
-                  soluong: widget.dsChiTietHoaDon[index].soluong!,
+                  image: widget.hoaDon.chiTietHoaDon![index].sanPham!.image!,
+                  tittle: widget.hoaDon.chiTietHoaDon![index].sanPham!.tittle!,
+                  price: widget.hoaDon.chiTietHoaDon![index].dongia!,
+                  id: widget.hoaDon.chiTietHoaDon![index].id!,
+                  idsp: widget.hoaDon.chiTietHoaDon![index].idsanpham!,
+                  soluong: widget.hoaDon.chiTietHoaDon![index].soluong!,
                   iduser: Auth.user.id!,
                 ),
               ),
@@ -127,17 +150,17 @@ class _InvoiceState extends State<InvoiceDetail> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Row(
-              children: const [
+              children: [
                 Text.rich(
                   TextSpan(
                     text: "Total:\n",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30,
                     ),
                     children: [
                       TextSpan(
-                        text: "tong tien`",
-                        style: TextStyle(fontSize: 25, color: Colors.black),
+                        text: "${widget.hoaDon.tongtien}",
+                        style: const TextStyle(fontSize: 25, color: Colors.black),
                       ),
                     ],
                   ),

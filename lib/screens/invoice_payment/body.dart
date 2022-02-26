@@ -18,9 +18,15 @@ class _BodyState extends State<Body> {
   String info = "";
 
   void getInfo() async {
-    User user = await infoAccount(Auth.user.id!);
+    User user = await infoAccount();
     setState(() {
-      info = 'Số điện thoại: ' + user.sDT.toString() + '\n' + 'Địa chỉ: ' + user.diaChi.toString();
+      info = '''
+        Số điện thoại: ${user.sDT}\n
+       Địa chỉ: ${user.diaChii!.diachichitiet}, ${user.diaChii!.phuongxa}, \n
+       ${user.diaChii!.quanhuyen}, \n
+       ${user.diaChii!.tinhthanhpho}, \n
+       Tên Người Nhận: ${user.diaChii!.tennguoinhan}
+       ''';
     });
   }
 
@@ -40,8 +46,7 @@ class _BodyState extends State<Body> {
             height: kDefaultPaddin,
           ),
           SizedBox(
-            width: 600,
-            height: 250,
+            width: MediaQuery.of(context).size.width,
             child: AspectRatio(
               aspectRatio: 0.88,
               child: Container(
@@ -57,28 +62,25 @@ class _BodyState extends State<Body> {
                     ),
                   ],
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Thông tin giao hàng:",
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Thông tin giao hàng:",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: kDefaultPaddin),
-                      Text(
-                        info,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    ),
+                    const SizedBox(height: kDefaultPaddin),
+                    Text(
+                      info,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
