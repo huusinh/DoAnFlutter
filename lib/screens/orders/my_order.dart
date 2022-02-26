@@ -1,10 +1,5 @@
-import 'package:doanbanhang/screens/account/infomation.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
-import 'package:doanbanhang/screens/account/row_address.dart';
-import 'package:doanbanhang/screens/invoice_payment/invoice.dart';
 import 'package:doanbanhang/screens/orders/tab_donhang.dart';
-import 'package:doanbanhang/screens/orders/invoice_detail.dart';
-import 'package:doanbanhang/models/invoice.dart';
 import 'package:flutter/material.dart';
 
 class MyOrder extends StatefulWidget {

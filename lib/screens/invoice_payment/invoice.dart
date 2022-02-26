@@ -119,13 +119,6 @@ class _InvoiceState extends State<Invoice> {
                                       iduser: widget.iduser,
                                       account: [],
                                     )));
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen(
-                                      iduser: widget.iduser,
-                                      account: [],
-                                    )));
                       },
                     ),
                   ),

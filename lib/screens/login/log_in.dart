@@ -15,8 +15,8 @@ class Login extends StatefulWidget {
 
 class Logincreen extends State<Login> {
   bool isHiddenPassword = true;
-  TextEditingController taikhoan = TextEditingController(text: "quanmatcac11@gmail.com");
-  TextEditingController matkhau = TextEditingController(text: "quanmatcac");
+  TextEditingController taikhoan = TextEditingController();
+  TextEditingController matkhau = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

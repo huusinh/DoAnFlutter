@@ -1,13 +1,8 @@
 import 'package:doanbanhang/api/api_account.dart';
 import 'package:doanbanhang/api/api_getcart.dart';
-import 'package:doanbanhang/api/api_updatesoluong.dart';
 import 'package:doanbanhang/constants.dart';
 import 'package:doanbanhang/models/account.dart';
-import 'package:doanbanhang/models/products_test.dart';
-import 'package:doanbanhang/screens/cart/cart_item_cart.dart';
 import 'package:doanbanhang/screens/invoice_payment/invoice_itemcard.dart';
-import 'package:doanbanhang/screens/productdetails/cart_counter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:doanbanhang/models/cart.dart';
@@ -26,22 +21,23 @@ class _BodyState extends State<Body> {
   void getInfo(int id) async {
     User user = await infoAccount(id);
     setState(() {
-      info='Số điện thoại: '+user.sDT.toString() + '\n' +'Địa chỉ: '+user.diaChi.toString(); 
- 
+      info = 'Số điện thoại: ' + user.sDT.toString() + '\n' + 'Địa chỉ: ' + user.diaChi.toString();
     });
   }
 
+  @override
   void initState() {
+    super.initState();
     getInfo(widget.id);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: ListView(
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: kDefaultPaddin,
           ),
           SizedBox(
@@ -50,8 +46,8 @@ class _BodyState extends State<Body> {
             child: AspectRatio(
               aspectRatio: 0.88,
               child: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(10),
+                decoration: const BoxDecoration(
                   color: Color(0xFFF5F6F9),
                   //borderRadius: BorderRadius.circular(10),
                   boxShadow: [
@@ -63,23 +59,21 @@ class _BodyState extends State<Body> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Thông tin giao hàng:",
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: kDefaultPaddin,
-                      ),
+                      const SizedBox(height: kDefaultPaddin),
                       Text(
                         info.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -90,7 +84,7 @@ class _BodyState extends State<Body> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: kDefaultPaddin,
           ),
           FutureBuilder<List<Cart>>(
@@ -100,44 +94,45 @@ class _BodyState extends State<Body> {
                 return const Center(
                   child: Text('An error has occurred!'),
                 );
-              } else if (snapshot.hasData) {
-                return Column(
-                  children: [
-                    for (int i = 0; i < snapshot.data!.length; i++)
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        child: Dismissible(
-                          key: Key(snapshot.data![i].id.toString()),
-                          background: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFFFE6E6),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Row(
-                              children: [
-                                Spacer(),
-                                Icon(FontAwesomeIcons.trash),
-                              ],
-                            ),
-                          ),
-                          child: InvoiceItemCard(
-                            image: snapshot.data![i].image.toString(),
-                            tittle: snapshot.data![i].tittle.toString(),
-                            price: snapshot.data![i].price.toInt(),
-                            id: snapshot.data![i].id.toInt(),
-                            idsp: snapshot.data![i].idsanpham.toInt(),
-                            soluong: snapshot.data![i].soluong.toInt(),
-                            iduser: widget.id,
-                          ),
+              }
+              if (snapshot.hasData) {
+                return ListView.separated(
+                  itemCount: snapshot.data!.length,
+                  separatorBuilder: (context, index) => const SizedBox(
+                    height: 10, //khoang cach giua cac'layout
+                  ),
+                  //ngan chan ListView no' cuon xuong' duoc, xai` cho SingleChildScrollView-column
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, i) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Dismissible(
+                      key: Key(snapshot.data![i].id.toString()),
+                      background: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        decoration: BoxDecoration(color: const Color(0xFFFFE6E6), borderRadius: BorderRadius.circular(15)),
+                        child: Row(
+                          children: const [
+                            Spacer(),
+                            Icon(FontAwesomeIcons.trash),
+                          ],
                         ),
                       ),
-                  ],
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
+                      child: InvoiceItemCard(
+                        image: snapshot.data![i].image.toString(),
+                        tittle: snapshot.data![i].tittle.toString(),
+                        price: snapshot.data![i].price.toInt(),
+                        id: snapshot.data![i].id.toInt(),
+                        idsp: snapshot.data![i].idsanpham.toInt(),
+                        soluong: snapshot.data![i].soluong.toInt(),
+                        iduser: widget.id,
+                      ),
+                    ),
+                  ),
                 );
               }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             },
           ),
         ],
