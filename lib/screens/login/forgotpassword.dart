@@ -22,7 +22,12 @@ class ForgotPass extends StatelessWidget {
               size: 20,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Login(
+                            iduser: iduser,
+                          )));
             },
           ),
         ),
@@ -62,7 +67,8 @@ class ForgotPass extends StatelessWidget {
                   onPressed: () {},
                   child: const Text('Lấy mã'),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
@@ -102,7 +108,8 @@ class ForgotPass extends StatelessWidget {
                   },
                   child: const Text('Xác nhận'),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),

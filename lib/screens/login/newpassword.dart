@@ -51,11 +51,17 @@ class NewPassword extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Login(
+                                  iduser: iduser,
+                                )));
                   },
                   child: const Text('Trang chủ'),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),

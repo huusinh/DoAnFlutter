@@ -24,7 +24,12 @@ class Register extends StatelessWidget {
                 size: 20,
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Login(
+                              iduser: iduser,
+                            )));
               },
             ),
             title: const Text('Đăng kí tài khoản')),
@@ -106,15 +111,22 @@ class Register extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 child: ElevatedButton(
                   onPressed: () async {
-                    final kq = await apiDangki(ten.text, taikhoan.text, matkhau.text);
+                    final kq =
+                        await apiDangki(ten.text, taikhoan.text, matkhau.text);
                     if (kq.email.isNotEmpty) {
                       Auth.user = kq;
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Login(
+                                    iduser: iduser,
+                                  )));
                     }
                   },
                   child: const Text('Đăng kí'),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),

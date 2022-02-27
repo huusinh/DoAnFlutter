@@ -30,8 +30,8 @@ class User {
     email = json['email'];
     gioiTinh = json['GioiTinh'];
     ngaySinh = json['NgaySinh'];
-    diaChi = json['diachi'];
-    sDT = json['sodienthoai'].toString();
+    diaChi = json['DiaChi'];
+    sDT = json['SDT'].toString();
     quyen = json['Quyen'];
     trangThai = json['TrangThai'];
     diaChii = json['dia_chi'] != null ? DiaChi.fromJson(json['dia_chi']) : null;
@@ -44,15 +44,15 @@ class User {
     data['email'] = email;
     data['GioiTinh'] = gioiTinh;
     data['NgaySinh'] = ngaySinh;
-    data['diachi'] = diaChi;
-    data['sodienthoai'] = sDT;
+    data['DiaChi'] = diaChi;
+    data['SDT'] = sDT;
     data['Quyen'] = quyen;
     data['TrangThai'] = trangThai;
     return data;
   }
 
   User.empty() {
-    id = 1;
+    id = -1;
     name = "";
     email = "";
     gioiTinh = 0;

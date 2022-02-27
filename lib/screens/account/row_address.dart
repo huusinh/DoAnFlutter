@@ -1,3 +1,4 @@
+import 'package:doanbanhang/screens/login/Auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:doanbanhang/screens/account/profiles.dart';
@@ -176,9 +177,11 @@ class _RowAddressState extends State<RowAddress> {
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                     backgroundColor: MaterialStateProperty.all(Colors.orange),
                     shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
                     )),
                 onPressed: () async {
+                  diaChi.idtaikhoan = Auth.user.id;
                   diaChi.tennguoinhan = txtTenNhuoiNhan.text;
                   diaChi.sodienthoai = txtSDT.text;
                   diaChi.tinhthanhpho = txtTinhThanhPho.text;

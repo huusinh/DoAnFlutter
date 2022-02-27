@@ -15,7 +15,7 @@ class _MyOderState extends State<MyOrder> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 3, vsync: this);
+    controller = TabController(length: 6, vsync: this);
   }
 
   @override
@@ -42,10 +42,14 @@ class _MyOderState extends State<MyOrder> with SingleTickerProviderStateMixin {
             },
           ),
           centerTitle: true,
-          bottom: TabBar(controller: controller, tabs: const [
+          bottom:
+              TabBar(isScrollable: true, controller: controller, tabs: const [
             Tab(text: 'Tất cả '),
             Tab(text: 'Đơn mới đặt'),
             Tab(text: 'Đơn đã xử lý'),
+            Tab(text: 'Đơn đang vận chuyển'),
+            Tab(text: 'Đơn đã hoàn thành'),
+            Tab(text: 'Đơn đã huỷ'),
           ]),
         ),
         body: TabBarView(
@@ -54,6 +58,9 @@ class _MyOderState extends State<MyOrder> with SingleTickerProviderStateMixin {
             TabDonHang(trangThai: 0),
             TabDonHang(trangThai: 1),
             TabDonHang(trangThai: 2),
+            TabDonHang(trangThai: 3),
+            TabDonHang(trangThai: 4),
+            TabDonHang(trangThai: 5),
           ],
         ),
       );

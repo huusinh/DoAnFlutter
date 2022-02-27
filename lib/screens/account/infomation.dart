@@ -1,4 +1,5 @@
 import 'package:doanbanhang/api/api_accountcapnhat.dart';
+import 'package:doanbanhang/api/api_diachi.dart';
 import 'package:doanbanhang/models/account.dart';
 import 'package:doanbanhang/screens/home/homescreen.dart';
 import 'package:doanbanhang/screens/login/Auth.dart';
@@ -9,7 +10,7 @@ import 'package:doanbanhang/screens/account/profiles.dart';
 class Information extends StatefulWidget {
   final int iduser;
   // ignore: use_key_in_widget_constructors
-  Information({Key? key, required this.iduser}) : super(key:key);
+  Information({Key? key, required this.iduser}) : super(key: key);
 
   @override
   _InformationState createState() => _InformationState();
@@ -20,11 +21,16 @@ enum GioiTinh { Nam, Nu }
 class _InformationState extends State<Information> {
   GioiTinh selectedRadio = Auth.user.gioiTinh == 1 ? GioiTinh.Nam : GioiTinh.Nu;
 
-  TextEditingController ten = TextEditingController(text: Auth.user.name.toString());
-  TextEditingController taikhoan = TextEditingController(text: Auth.user.email.toString());
-  TextEditingController ngaysinh = TextEditingController(text: Auth.user.ngaySinh.toString());
-  TextEditingController diachi = TextEditingController(text: Auth.user.diaChi.toString());
-  TextEditingController sdt = TextEditingController(text: Auth.user.sDT.toString());
+  TextEditingController ten =
+      TextEditingController(text: Auth.user.name.toString());
+  TextEditingController taikhoan =
+      TextEditingController(text: Auth.user.email.toString());
+  TextEditingController ngaysinh =
+      TextEditingController(text: Auth.user.ngaySinh.toString());
+  TextEditingController diachi =
+      TextEditingController(text: Auth.user.diaChi.toString());
+  TextEditingController sdt =
+      TextEditingController(text: Auth.user.sDT.toString());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +45,12 @@ class _InformationState extends State<Information> {
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(iduser: widget.iduser,)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Profile(
+                          iduser: widget.iduser,
+                        )));
           },
         ),
       ),
@@ -53,7 +64,7 @@ class _InformationState extends State<Information> {
               child: TextField(
                 controller: ten,
                 decoration: InputDecoration(
-                  labelText: Auth.user.name,
+                  labelText: 'Họ và Tên',
                   hintText: Auth.user.name.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
@@ -112,7 +123,7 @@ class _InformationState extends State<Information> {
               child: TextField(
                 controller: ngaysinh,
                 decoration: InputDecoration(
-                  labelText: Auth.user.ngaySinh,
+                  labelText: 'Ngày Sinh',
                   hintText: Auth.user.ngaySinh.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
@@ -127,8 +138,9 @@ class _InformationState extends State<Information> {
               child: TextField(
                 controller: diachi,
                 decoration: InputDecoration(
-                  labelText: Auth.user.diaChi,
-                  hintText: Auth.user.diaChi.toString(),
+                  labelText: 'Địa Chỉ',
+                  // hintText: Auth.user.diaChi.toString(),
+                  hintText: 'HCM',
                   hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -142,7 +154,7 @@ class _InformationState extends State<Information> {
               child: TextField(
                 controller: taikhoan,
                 decoration: InputDecoration(
-                  labelText: Auth.user.email,
+                  labelText: 'Email',
                   hintText: Auth.user.email.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
@@ -157,7 +169,7 @@ class _InformationState extends State<Information> {
               child: TextField(
                 controller: sdt,
                 decoration: InputDecoration(
-                  labelText: Auth.user.sDT,
+                  labelText: 'Số điện thoại',
                   hintText: Auth.user.sDT.toString(),
                   hintStyle: const TextStyle(
                     fontSize: 16,
@@ -172,13 +184,14 @@ class _InformationState extends State<Information> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
-                child: const Text(
-                  'Cập nhật thông tin',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                child: const Text("Cập nhật thông tin"),
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Colors.orange),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                    )),
                 onPressed: () async {
                   final user = Auth.user;
                   user.name = ten.text;
@@ -189,7 +202,13 @@ class _InformationState extends State<Information> {
                   user.sDT = sdt.text;
 
                   Auth.user = await apiCapnhat(user);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(iduser: widget.iduser, account: [],)));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HomeScreen(
+                                iduser: widget.iduser,
+                                account: [],
+                              )));
                 },
               ),
             ),
